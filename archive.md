@@ -1,8 +1,14 @@
 ---
 layout: page
 title: Archive
+permalink: /archive/
 ---
 
 {% for post in site.posts %}
-  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
+  <article>
+    <h3>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+    <time>{{ post.date | date: "%B %d, %Y" }}</time>
+  </article>
 {% endfor %}
