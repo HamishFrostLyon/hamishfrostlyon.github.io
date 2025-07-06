@@ -1,0 +1,15 @@
+title: 'Hamish'
+tagline: 'Management Consultant'
+description: 'Operations & Digital Technology'
+url: https://hamishfrostlyon.github.io
+baseurl: ''
+
+remote_theme: poole/lanyon
+
+author:
+  name: 'Hamish'
+  email: hamishlyon@icloud.com
+
+pages_list:
+  About: '/about'
+  Archive: '/archive'
