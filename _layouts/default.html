@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,63 +14,123 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --text-secondary: #666;
+            --border-color: #e5e5e5;
+            --hover-color: #555;
+            --link-color: #0066cc;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e5e5e5;
+            --text-secondary: #999;
+            --border-color: #333;
+            --hover-color: #ccc;
+            --link-color: #4d94ff;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, Georgia, 'Times New Roman', serif;
-            line-height: 1.7;
-            color: #1a1a1a;
-            background: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
             max-width: 680px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 20px;
         }
         
+        /* New Header Styles */
         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0 60px 0;
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 60px;
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 30px;
         }
         
-        h1 {
-            font-size: 2.2em;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-        }
-        
-        .tagline {
+        .header-left h1 {
             font-size: 1.1em;
-            color: #666;
-            font-style: italic;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .header-left h1 a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
         
         nav {
-            margin-top: 25px;
+            display: flex;
+            gap: 25px;
         }
         
         nav a {
-            color: #1a1a1a;
+            color: var(--text-color);
             text-decoration: none;
-            margin-right: 25px;
             font-size: 0.95em;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
             transition: color 0.2s ease;
         }
         
         nav a:hover {
-            color: #666;
+            color: var(--hover-color);
         }
         
-        nav a.active {
-            color: #666;
+        /* Dark mode toggle button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
         }
         
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .sun-icon {
+            display: none;
+        }
+        
+        .moon-icon {
+            display: block;
+        }
+        
+        [data-theme="dark"] .sun-icon {
+            display: block;
+        }
+        
+        [data-theme="dark"] .moon-icon {
+            display: none;
+        }
+        
+        /* Rest of your styles */
         h2 {
             font-size: 1.5em;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 25px;
             letter-spacing: -0.01em;
         }
@@ -75,7 +138,7 @@
         article {
             margin-bottom: 45px;
             padding-bottom: 45px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border-color);
         }
         
         article:last-child {
@@ -83,36 +146,36 @@
         }
         
         h3 {
-            font-size: 1.4em;
-            font-weight: 400;
+            font-size: 1.3em;
+            font-weight: 500;
             margin-bottom: 8px;
             letter-spacing: -0.01em;
         }
         
         h3 a {
-            color: #1a1a1a;
+            color: var(--text-color);
             text-decoration: none;
             transition: color 0.2s ease;
         }
         
         h3 a:hover {
-            color: #555;
+            color: var(--hover-color);
         }
         
         .meta {
             font-size: 0.9em;
-            color: #888;
+            color: var(--text-secondary);
             margin-bottom: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
         }
         
         .excerpt {
-            color: #444;
+            color: var(--text-color);
             line-height: 1.75;
+            opacity: 0.9;
         }
         
         .read-more {
-            color: #666;
+            color: var(--link-color);
             text-decoration: none;
             font-size: 0.95em;
             display: inline-block;
@@ -121,7 +184,7 @@
         }
         
         .read-more:hover {
-            color: #333;
+            text-decoration: underline;
         }
         
         .post-content {
@@ -133,11 +196,13 @@
             line-height: 1.8;
         }
         
-        .post-content p:first-child {
-            font-size: 1.1em;
-            color: #333;
-            font-style: italic;
-            margin-bottom: 25px;
+        .post-content a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
+            text-decoration: underline;
         }
         
         .about-content p {
@@ -148,39 +213,40 @@
         .contact {
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid #f0f0f0;
+            border-top: 1px solid var(--border-color);
         }
         
         .contact a {
-            color: #666;
+            color: var(--link-color);
             text-decoration: none;
         }
         
         .contact a:hover {
-            color: #333;
+            text-decoration: underline;
         }
         
         footer {
             margin-top: 80px;
             padding-top: 30px;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-color);
             font-size: 0.85em;
-            color: #888;
-            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            color: var(--text-secondary);
         }
         
         @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
             }
             
-            h1 {
-                font-size: 1.8em;
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
             }
             
-            nav a {
-                display: block;
-                margin: 10px 0;
+            nav {
+                gap: 20px;
             }
         }
     </style>
@@ -188,13 +254,31 @@
 <body>
     <div class="container">
         <header>
-            <h1><a href="{{ site.baseurl }}/" style="color: inherit; text-decoration: none;">{{ site.title }}</a></h1>
-            <p class="tagline">{{ site.tagline }}</p>
-            <nav>
-                <a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>Recent</a>
-                <a href="{{ site.baseurl }}/writing" {% if page.url == "/writing/" %}class="active"{% endif %}>Writing</a>
-                <a href="{{ site.baseurl }}/about" {% if page.url == "/about/" %}class="active"{% endif %}>About</a>
-            </nav>
+            <div class="header-left">
+                <h1><a href="{{ site.baseurl }}/">Hamish Lyon, Management Consultant.</a></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="{{ site.baseurl }}/writing">writing</a>
+                    <a href="{{ site.baseurl }}/about">about</a>
+                </nav>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
         </header>
 
         <main>
@@ -208,5 +292,23 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
