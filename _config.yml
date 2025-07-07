@@ -1,0 +1,24 @@
+title: Hamish
+tagline: Strategy, Operations, & Digital
+email: hamish@stabilityand.com
+description: Management consultant writing about strategy, operations, and digital transformation
+url: https://hamishfrostlyon.github.io
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
