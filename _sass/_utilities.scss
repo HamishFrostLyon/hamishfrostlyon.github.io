@@ -1,0 +1,50 @@
+// Theme toggle visibility
+.sun-icon {
+    display: none;
+}
+
+.moon-icon {
+    display: block;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: block;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: none;
+}
+
+// Content spacing
+.post-content {
+    margin-top: 2.5rem;
+    
+    p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+    }
+    
+    a {
+        color: var(--link-color);
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+article {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}

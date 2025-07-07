@@ -6,54 +6,11 @@ permalink: /writing/
 
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
-<style>
-    .download-links {
-        display: inline-flex;
-        gap: 0.75rem;
-        margin-left: auto;
-    }
-    
-    .download-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-        background: var(--tag-bg);
-    }
-    
-    .download-links a:hover {
-        background: var(--text-secondary);
-        transform: translateY(-1px);
-    }
-    
-    .download-links a:hover svg {
-        stroke: var(--bg-color);
-    }
-    
-    .download-links svg {
-        width: 16px;
-        height: 16px;
-        stroke: var(--text-secondary);
-        transition: stroke 0.2s ease;
-    }
-    
-    @media (max-width: 600px) {
-        .download-links {
-            margin-left: 0;
-            margin-top: 0.5rem;
-        }
-    }
-</style>
-
 {% for year in postsByYear %}
 <div class="year-group">
     <h2>{{ year.name }}</h2>
     <ul class="post-list">
         {% for post in year.items %}
-        {% assign filename = post.path | split: '/' | last | replace: '.md', '' %}
         <li class="post-item">
             <span class="post-date">{{ post.date | date: "%b %d" }}</span>
             <span class="post-title">
@@ -66,28 +23,7 @@ permalink: /writing/
                 {% endfor %}
             </span>
             {% endif %}
-            <span class="download-links">
-                <a href="{{ site.baseurl }}/markdown/{{ filename }}.md" 
-                   download
-                   title="Download markdown">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <path d="M10 12l-2 2 2 2"></path>
-                        <path d="M14 16l2-2-2-2"></path>
-                    </svg>
-                </a>
-                <a href="{{ site.baseurl }}/pdfs/{{ filename }}.pdf" 
-                   download
-                   title="Download PDF">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="12" y1="11" x2="12" y2="17"></line>
-                        <polyline points="9 14 12 17 15 14"></polyline>
-                    </svg>
-                </a>
-            </span>
+            {% include download-icons.html path=post.path %}
         </li>
         {% endfor %}
     </ul>

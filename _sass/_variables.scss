@@ -1,0 +1,31 @@
+// Light theme colors
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --text-secondary: #666;
+    --border-color: #e5e5e5;
+    --hover-color: #555;
+    --link-color: #0066cc;
+    --tag-bg: #f0f0f0;
+    --tag-text: #555;
+}
+
+// Dark theme colors
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e5e5e5;
+    --text-secondary: #999;
+    --border-color: #333;
+    --hover-color: #ccc;
+    --link-color: #4d94ff;
+    --tag-bg: #2a2a2a;
+    --tag-text: #aaa;
+}
+
+// Breakpoints
+$mobile: 600px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Spacing
+$spacing-unit: 1.25rem;

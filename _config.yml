@@ -1,5 +1,5 @@
-title: Hamish
-tagline: Strategy, Operations, & Digital
+title: Hamish Lyon
+tagline: Management Consultant
 email: hamish@stabilityand.com
 description: Management consultant writing about strategy, operations, and digital transformation
 url: https://hamishfrostlyon.github.io
@@ -8,6 +8,11 @@ baseurl: ""
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Collections
 collections:
@@ -22,3 +27,14 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+# Include
+include:
+  - _pages
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
