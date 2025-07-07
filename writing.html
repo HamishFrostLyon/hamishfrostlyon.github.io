@@ -6,11 +6,35 @@ permalink: /writing/
 
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
+<style>
+    .download-links {
+        font-size: 0.8rem;
+        display: inline-flex;
+        gap: 0.625rem;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+    }
+    
+    .download-links:hover {
+        opacity: 1;
+    }
+    
+    .download-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+    
+    .download-links a:hover {
+        color: var(--text-color);
+    }
+</style>
+
 {% for year in postsByYear %}
 <div class="year-group">
     <h2>{{ year.name }}</h2>
     <ul class="post-list">
         {% for post in year.items %}
+        {% assign filename = post.path | split: '/' | last | replace: '.md', '' %}
         <li class="post-item">
             <span class="post-date">{{ post.date | date: "%b %d" }}</span>
             <span class="post-title">
@@ -23,6 +47,18 @@ permalink: /writing/
                 {% endfor %}
             </span>
             {% endif %}
+            <span class="download-links">
+                <a href="{{ site.baseurl }}/markdown/{{ filename }}.md" 
+                   download
+                   title="Download markdown">
+                    md ↓
+                </a>
+                <a href="{{ site.baseurl }}/pdfs/{{ filename }}.pdf" 
+                   download
+                   title="Download PDF">
+                    pdf ↓
+                </a>
+            </span>
         </li>
         {% endfor %}
     </ul>

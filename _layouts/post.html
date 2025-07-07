@@ -1,8 +1,23 @@
 ---
 layout: default
 ---
+{% assign filename = page.path | split: '/' | last | replace: '.md', '' %}
 <article>
-    <h2>{{ page.title }}</h2>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 25px;">
+        <h2 style="margin: 0;">{{ page.title }}</h2>
+        <div style="display: flex; gap: 15px; font-size: 0.85em;">
+            <a href="{{ site.baseurl }}/markdown/{{ filename }}.md" 
+               download
+               style="color: var(--text-secondary); text-decoration: none;">
+                markdown ↓
+            </a>
+            <a href="{{ site.baseurl }}/pdfs/{{ filename }}.pdf" 
+               download
+               style="color: var(--text-secondary); text-decoration: none;">
+                pdf ↓
+            </a>
+        </div>
+    </div>
     <div class="meta">{{ page.date | date: "%B %d, %Y" }}</div>
     <div class="post-content">
         {{ content }}
