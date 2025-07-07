@@ -2,12 +2,14 @@
 layout: default
 ---
 {% assign filename = page.path | split: '/' | last | replace: '.md', '' %}
-<article>
-    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 25px;">
-        <h2 style="margin: 0;">{{ page.title }}</h2>
-        {% include download-icons.html path=page.path %}
+<article role="article" aria-labelledby="post-title">
+    <header style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 25px;">
+        <h1 id="post-title" style="margin: 0; font-size: 2rem;">{{ page.title }}</h1>
+        {% include download-icons.html path=page.path title=page.title %}
+    </header>
+    <div class="meta">
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>
     </div>
-    <div class="meta">{{ page.date | date: "%B %d, %Y" }}</div>
     <div class="post-content">
         {{ content }}
     </div>

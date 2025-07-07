@@ -81,3 +81,49 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', newTheme);
     });
 });
+
+// Update theme toggle ARIA
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeState = themeToggle.querySelector('.theme-state');
+    
+    // Update aria-pressed based on theme
+    function updateThemeAria() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeToggle.setAttribute('aria-pressed', isDark.toString());
+        if (themeState) {
+            themeState.textContent = isDark ? 'on' : 'off';
+        }
+    }
+    
+    // Initial state
+    updateThemeAria();
+    
+    // Update on theme change
+    const originalToggleHandler = themeToggle.onclick;
+    themeToggle.onclick = function(e) {
+        if (originalToggleHandler) originalToggleHandler.call(this, e);
+        updateThemeAria();
+    };
+});
+
+// Announce search results to screen readers
+function announceSearchResults(results) {
+    const searchResults = document.getElementById('search-results');
+    const announcement = results.length === 0 
+        ? 'No search results found' 
+        : `${results.length} search result${results.length === 1 ? '' : 's'} found`;
+    
+    // Create or update live region announcement
+    let liveRegion = document.getElementById('search-announcement');
+    if (!liveRegion) {
+        liveRegion = document.createElement('div');
+        liveRegion.id = 'search-announcement';
+        liveRegion.className = 'sr-only';
+        liveRegion.setAttribute('aria-live', 'polite');
+        liveRegion.setAttribute('aria-atomic', 'true');
+        searchResults.parentNode.insertBefore(liveRegion, searchResults);
+    }
+    
+    liveRegion.textContent = announcement;
+}

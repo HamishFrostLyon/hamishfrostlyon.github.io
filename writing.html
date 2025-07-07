@@ -6,26 +6,30 @@ permalink: /writing/
 
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
+<div role="region" aria-label="Blog posts organized by year">
 {% for year in postsByYear %}
-<div class="year-group">
-    <h2>{{ year.name }}</h2>
-    <ul class="post-list">
+<section class="year-group" aria-labelledby="year-{{ year.name }}">
+    <h2 id="year-{{ year.name }}">{{ year.name }}</h2>
+    <ul class="post-list" role="list">
         {% for post in year.items %}
-        <li class="post-item">
-            <span class="post-date">{{ post.date | date: "%b %d" }}</span>
+        <li class="post-item" role="listitem">
+            <span class="post-date">
+                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %d" }}</time>
+            </span>
             <span class="post-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </span>
             {% if post.tags.size > 0 %}
-            <span class="post-tags">
+            <span class="post-tags" role="list" aria-label="Tags">
                 {% for tag in post.tags limit:2 %}
-                <span class="tag">{{ tag }}</span>
+                <span class="tag" role="listitem">{{ tag }}</span>
                 {% endfor %}
             </span>
             {% endif %}
-            {% include download-icons.html path=post.path %}
+            {% include download-icons.html path=post.path title=post.title %}
         </li>
         {% endfor %}
     </ul>
-</div>
+</section>
 {% endfor %}
+</div>
