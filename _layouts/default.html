@@ -45,23 +45,23 @@ layout: null
         }
         
         .container {
-            max-width: 680px;
+            max-width: 42rem; /* ~680px but scales with user font size */
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.25rem; /* 20px */
         }
         
-        /* Header Styles */
+        /* Mobile-first header */
         header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 0 60px 0;
+            flex-direction: column;
+            gap: 1.25rem;
+            padding: 2rem 0 3rem 0; /* Reduced for mobile */
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 60px;
+            margin-bottom: 3rem;
         }
         
         .header-left h1 {
-            font-size: 1.1em;
+            font-size: 1.1rem;
             font-weight: 500;
             letter-spacing: -0.01em;
         }
@@ -73,19 +73,20 @@ layout: null
         
         .header-right {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 25px;
+            width: 100%;
         }
         
         nav {
             display: flex;
-            gap: 25px;
+            gap: 1.25rem;
         }
         
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            font-size: 0.95em;
+            font-size: 0.95rem;
             transition: color 0.2s ease;
         }
         
@@ -102,7 +103,7 @@ layout: null
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
+            padding: 0.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -115,8 +116,8 @@ layout: null
         }
         
         .theme-toggle svg {
-            width: 20px;
-            height: 20px;
+            width: 1.25rem; /* 20px */
+            height: 1.25rem;
         }
         
         .sun-icon {
@@ -137,37 +138,32 @@ layout: null
         
         /* Year grouping styles */
         .year-group {
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
         }
         
         .year-group h2 {
-            font-size: 1.8em;
+            font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             color: var(--text-color);
         }
         
-        /* Post list styles */
+        /* Post list - mobile first */
         .post-list {
             list-style: none;
         }
         
         .post-item {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             display: flex;
-            align-items: baseline;
-            gap: 15px;
+            flex-direction: column;
+            gap: 0.3rem;
         }
         
         .post-date {
             color: var(--text-secondary);
-            font-size: 0.9em;
-            min-width: 60px;
+            font-size: 0.9rem;
             font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
-        }
-        
-        .post-title {
-            flex: 1;
         }
         
         .post-title a {
@@ -182,13 +178,13 @@ layout: null
         
         .post-tags {
             display: flex;
-            gap: 8px;
-            margin-left: auto;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
         
         .tag {
-            font-size: 0.75em;
-            padding: 2px 8px;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
             background: var(--tag-bg);
             color: var(--tag-text);
             border-radius: 3px;
@@ -201,34 +197,73 @@ layout: null
             color: var(--bg-color);
         }
         
-        /* About page styles */
-        .about-content p {
-            margin-bottom: 20px;
-            line-height: 1.8;
+        /* Typography */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
         
-        .contact {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
+        article {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .contact a {
+        article:last-child {
+            border-bottom: none;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        h3 a:hover {
+            color: var(--hover-color);
+        }
+        
+        .meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .excerpt {
+            color: var(--text-color);
+            line-height: 1.75;
+            opacity: 0.9;
+        }
+        
+        .read-more {
             color: var(--link-color);
             text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-top: 0.625rem;
+            transition: color 0.2s ease;
         }
         
-        .contact a:hover {
+        .read-more:hover {
             text-decoration: underline;
         }
         
-        /* Post content styles */
+        /* Content styles */
         .post-content {
-            margin-top: 40px;
+            margin-top: 2.5rem;
         }
         
         .post-content p {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             line-height: 1.8;
         }
         
@@ -241,37 +276,68 @@ layout: null
             text-decoration: underline;
         }
         
-        footer {
-            margin-top: 80px;
-            padding-top: 30px;
+        .about-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+        
+        .contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border-color);
-            font-size: 0.85em;
+        }
+        
+        .contact a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
         
-        @media (max-width: 600px) {
+        /* Tablet and up */
+        @media (min-width: 600px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2.5rem 0 3.75rem 0;
             }
             
             .header-right {
-                width: 100%;
-                justify-content: space-between;
+                width: auto;
+                gap: 1.5rem;
             }
             
             nav {
-                gap: 20px;
+                gap: 1.5rem;
             }
             
             .post-item {
-                flex-direction: column;
-                gap: 5px;
+                flex-direction: row;
+                align-items: baseline;
+                gap: 1rem;
+            }
+            
+            .post-date {
+                min-width: 3.75rem; /* ~60px */
+            }
+            
+            .post-title {
+                flex: 1;
             }
             
             .post-tags {
-                margin-left: 0;
+                margin-left: auto;
             }
         }
     </style>
