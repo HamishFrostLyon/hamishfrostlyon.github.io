@@ -105,11 +105,37 @@ layout: null
             gap: 0.75rem;
         }
         
+        /* Inline search */
         .search-container {
+            display: flex;
+            align-items: center;
             position: relative;
         }
         
-        .search-toggle, .theme-toggle {
+        .search-input {
+            width: 0;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transition: width 0.3s ease, padding 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .search-input.active {
+            width: 150px;
+            padding: 0.25rem 0;
+            margin-right: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-bottom-color: var(--text-color);
+        }
+        
+        .search-toggle {
             background: none;
             border: none;
             cursor: pointer;
@@ -121,54 +147,43 @@ layout: null
             transition: transform 0.3s ease;
         }
         
-        .search-toggle:hover, .theme-toggle:hover {
+        .search-toggle:hover {
             transform: scale(1.1);
         }
         
-        .search-toggle svg, .theme-toggle svg {
+        .search-toggle svg {
             width: 1.25rem;
             height: 1.25rem;
         }
         
-        .search-box {
+        /* Search results dropdown */
+        .search-results {
             position: absolute;
-            right: 0;
             top: 100%;
+            right: 0;
             margin-top: 0.5rem;
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            padding: 0.75rem;
-            display: none;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             z-index: 100;
             min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
         }
         
-        .search-box.active {
+        .search-results.active {
             display: block;
         }
         
-        .search-input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-        
-        .search-results {
-            margin-top: 0.75rem;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
         .search-result {
-            padding: 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 0.25rem;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .search-result:last-child {
+            border-bottom: none;
         }
         
         .search-result:hover {
@@ -183,6 +198,7 @@ layout: null
         
         .search-result-title {
             font-weight: 500;
+            margin-bottom: 0.25rem;
         }
         
         .search-result-date {
@@ -194,6 +210,28 @@ layout: null
             padding: 1rem;
             text-align: center;
             color: var(--text-secondary);
+        }
+        
+        /* Theme toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
         }
         
         .sun-icon {
@@ -379,6 +417,13 @@ layout: null
             color: var(--text-secondary);
         }
         
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .search-input.active {
+                width: 100px;
+            }
+        }
+        
         /* Tablet and up */
         @media (min-width: 600px) {
             header {
@@ -414,6 +459,10 @@ layout: null
             .post-tags {
                 margin-left: auto;
             }
+            
+            .search-input.active {
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -430,16 +479,14 @@ layout: null
                 </nav>
                 <div class="header-actions">
                     <div class="search-container">
+                        <input type="text" class="search-input" id="search-input" placeholder="Search...">
                         <button class="search-toggle" id="search-toggle" aria-label="Toggle search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <path d="m21 21-4.35-4.35"></path>
                             </svg>
                         </button>
-                        <div class="search-box" id="search-box">
-                            <input type="text" class="search-input" id="search-input" placeholder="Search posts...">
-                            <div class="search-results" id="search-results"></div>
-                        </div>
+                        <div class="search-results" id="search-results"></div>
                     </div>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -488,29 +535,44 @@ layout: null
 
         // Search functionality
         const searchToggle = document.getElementById('search-toggle');
-        const searchBox = document.getElementById('search-box');
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
 
         searchToggle.addEventListener('click', function() {
-            searchBox.classList.toggle('active');
-            if (searchBox.classList.contains('active')) {
+            searchInput.classList.toggle('active');
+            if (searchInput.classList.contains('active')) {
                 searchInput.focus();
+                searchResults.classList.add('active');
+            } else {
+                searchInput.blur();
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+                searchResults.innerHTML = '';
             }
         });
 
         // Close search when clicking outside
         document.addEventListener('click', function(e) {
-            if (!searchToggle.contains(e.target) && !searchBox.contains(e.target)) {
-                searchBox.classList.remove('active');
+            const searchContainer = document.querySelector('.search-container');
+            if (!searchContainer.contains(e.target)) {
+                searchInput.classList.remove('active');
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+                searchResults.innerHTML = '';
             }
         });
 
         // Search function
         searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase();
+            
+            if (!searchInput.classList.contains('active')) {
+                return;
+            }
+            
             if (query.length < 2) {
                 searchResults.innerHTML = '';
+                searchResults.classList.remove('active');
                 return;
             }
 
@@ -519,6 +581,8 @@ layout: null
                 post.excerpt.toLowerCase().includes(query)
             );
 
+            searchResults.classList.add('active');
+            
             if (results.length === 0) {
                 searchResults.innerHTML = '<div class="no-results">No results found</div>';
             } else {
