@@ -105,11 +105,29 @@ layout: null
             gap: 0.75rem;
         }
         
-        /* Inline search */
+        /* Inline search - FIXED positioning */
         .search-container {
+            position: relative;
+        }
+        
+        .search-wrapper {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
-            position: relative;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding-right: 0;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .search-wrapper.active {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem 0.25rem 1rem;
         }
         
         .search-input {
@@ -119,20 +137,18 @@ layout: null
             background: transparent;
             color: var(--text-color);
             font-size: 0.9rem;
-            transition: width 0.3s ease, padding 0.3s ease;
-            border-bottom: 1px solid transparent;
+            transition: width 0.3s ease;
+            opacity: 0;
         }
         
-        .search-input.active {
-            width: 150px;
-            padding: 0.25rem 0;
+        .search-wrapper.active .search-input {
+            width: 200px;
+            opacity: 1;
             margin-right: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
         }
         
         .search-input:focus {
             outline: none;
-            border-bottom-color: var(--text-color);
         }
         
         .search-toggle {
@@ -145,6 +161,8 @@ layout: null
             justify-content: center;
             color: var(--text-color);
             transition: transform 0.3s ease;
+            position: relative;
+            z-index: 11;
         }
         
         .search-toggle:hover {
@@ -159,13 +177,12 @@ layout: null
         /* Search results dropdown */
         .search-results {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 0.5rem);
             right: 0;
-            margin-top: 0.5rem;
             background: var(--bg-color);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             z-index: 100;
             min-width: 300px;
             max-height: 400px;
@@ -419,8 +436,8 @@ layout: null
         
         /* Mobile adjustments */
         @media (max-width: 600px) {
-            .search-input.active {
-                width: 100px;
+            .search-wrapper.active .search-input {
+                width: 150px;
             }
         }
         
@@ -459,10 +476,6 @@ layout: null
             .post-tags {
                 margin-left: auto;
             }
-            
-            .search-input.active {
-                width: 200px;
-            }
         }
     </style>
 </head>
@@ -479,13 +492,15 @@ layout: null
                 </nav>
                 <div class="header-actions">
                     <div class="search-container">
-                        <input type="text" class="search-input" id="search-input" placeholder="Search...">
-                        <button class="search-toggle" id="search-toggle" aria-label="Toggle search">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                        </button>
+                        <div class="search-wrapper" id="search-wrapper">
+                            <input type="text" class="search-input" id="search-input" placeholder="Search posts...">
+                            <button class="search-toggle" id="search-toggle" aria-label="Toggle search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
                         <div class="search-results" id="search-results"></div>
                     </div>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
@@ -535,12 +550,14 @@ layout: null
 
         // Search functionality
         const searchToggle = document.getElementById('search-toggle');
+        const searchWrapper = document.getElementById('search-wrapper');
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
 
-        searchToggle.addEventListener('click', function() {
-            searchInput.classList.toggle('active');
-            if (searchInput.classList.contains('active')) {
+        searchToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchWrapper.classList.toggle('active');
+            if (searchWrapper.classList.contains('active')) {
                 searchInput.focus();
                 searchResults.classList.add('active');
             } else {
@@ -551,11 +568,15 @@ layout: null
             }
         });
 
+        // Prevent closing when clicking inside search
+        searchWrapper.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
         // Close search when clicking outside
         document.addEventListener('click', function(e) {
-            const searchContainer = document.querySelector('.search-container');
-            if (!searchContainer.contains(e.target)) {
-                searchInput.classList.remove('active');
+            if (!searchWrapper.contains(e.target)) {
+                searchWrapper.classList.remove('active');
                 searchResults.classList.remove('active');
                 searchInput.value = '';
                 searchResults.innerHTML = '';
@@ -565,10 +586,6 @@ layout: null
         // Search function
         searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase();
-            
-            if (!searchInput.classList.contains('active')) {
-                return;
-            }
             
             if (query.length < 2) {
                 searchResults.innerHTML = '';
