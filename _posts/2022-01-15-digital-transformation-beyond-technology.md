@@ -2,6 +2,7 @@
 layout: post
 title: "Digital Transformation: Beyond Technology"
 date: 2022-01-15
+tags: [digital, transformation]
 excerpt: "Digital transformation failures rarely stem from technology choices. Instead, they falter on the human elements: culture, capabilities, and change management."
 ---
 

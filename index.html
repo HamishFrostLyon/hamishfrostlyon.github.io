@@ -1,14 +1,12 @@
----
-layout: default
----
-
-{% for post in site.posts limit:5 %}
-<article>
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <div class="meta">{{ post.date | date: "%B %d, %Y" }}</div>
-    <div class="excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 50 }}
-        <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
-    </div>
-</article>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=/writing">
+    <link rel="canonical" href="/writing">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Redirecting to <a href="/writing">writing</a>...</p>
+</body>
+</html>

@@ -6,7 +6,7 @@ layout: null
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Hamish Lyon</title>
     <style>
         * {
             margin: 0;
@@ -21,6 +21,8 @@ layout: null
             --border-color: #e5e5e5;
             --hover-color: #555;
             --link-color: #0066cc;
+            --tag-bg: #f0f0f0;
+            --tag-text: #555;
         }
         
         [data-theme="dark"] {
@@ -30,6 +32,8 @@ layout: null
             --border-color: #333;
             --hover-color: #ccc;
             --link-color: #4d94ff;
+            --tag-bg: #2a2a2a;
+            --tag-text: #aaa;
         }
         
         body {
@@ -46,7 +50,7 @@ layout: null
             padding: 20px;
         }
         
-        /* New Header Styles */
+        /* Header Styles */
         header {
             display: flex;
             justify-content: space-between;
@@ -89,6 +93,10 @@ layout: null
             color: var(--hover-color);
         }
         
+        nav a.active {
+            font-weight: 600;
+        }
+        
         /* Dark mode toggle button */
         .theme-toggle {
             background: none;
@@ -127,84 +135,73 @@ layout: null
             display: none;
         }
         
-        /* Rest of your styles */
-        h2 {
-            font-size: 1.5em;
-            font-weight: 500;
-            margin-bottom: 25px;
-            letter-spacing: -0.01em;
+        /* Year grouping styles */
+        .year-group {
+            margin-bottom: 50px;
         }
         
-        article {
-            margin-bottom: 45px;
-            padding-bottom: 45px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        article:last-child {
-            border-bottom: none;
-        }
-        
-        h3 {
-            font-size: 1.3em;
-            font-weight: 500;
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-        
-        h3 a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        h3 a:hover {
-            color: var(--hover-color);
-        }
-        
-        .meta {
-            font-size: 0.9em;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-        
-        .excerpt {
-            color: var(--text-color);
-            line-height: 1.75;
-            opacity: 0.9;
-        }
-        
-        .read-more {
-            color: var(--link-color);
-            text-decoration: none;
-            font-size: 0.95em;
-            display: inline-block;
-            margin-top: 10px;
-            transition: color 0.2s ease;
-        }
-        
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        
-        .post-content {
-            margin-top: 40px;
-        }
-        
-        .post-content p {
+        .year-group h2 {
+            font-size: 1.8em;
+            font-weight: 600;
             margin-bottom: 20px;
-            line-height: 1.8;
+            color: var(--text-color);
         }
         
-        .post-content a {
-            color: var(--link-color);
+        /* Post list styles */
+        .post-list {
+            list-style: none;
+        }
+        
+        .post-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+        
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            min-width: 60px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+        }
+        
+        .post-title {
+            flex: 1;
+        }
+        
+        .post-title a {
+            color: var(--text-color);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
         
-        .post-content a:hover {
-            text-decoration: underline;
+        .post-title a:hover {
+            color: var(--link-color);
         }
         
+        .post-tags {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+        }
+        
+        .tag {
+            font-size: 0.75em;
+            padding: 2px 8px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border-radius: 3px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background: var(--text-secondary);
+            color: var(--bg-color);
+        }
+        
+        /* About page styles */
         .about-content p {
             margin-bottom: 20px;
             line-height: 1.8;
@@ -222,6 +219,25 @@ layout: null
         }
         
         .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Post content styles */
+        .post-content {
+            margin-top: 40px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .post-content a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
             text-decoration: underline;
         }
         
@@ -248,6 +264,15 @@ layout: null
             nav {
                 gap: 20px;
             }
+            
+            .post-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .post-tags {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -255,12 +280,12 @@ layout: null
     <div class="container">
         <header>
             <div class="header-left">
-                <h1><a href="{{ site.baseurl }}/">Hamish Lyon, Management Consultant.</a></h1>
+                <h1><a href="{{ site.baseurl }}/writing">Hamish Lyon, Management Consultant.</a></h1>
             </div>
             <div class="header-right">
                 <nav>
-                    <a href="{{ site.baseurl }}/writing">writing</a>
-                    <a href="{{ site.baseurl }}/about">about</a>
+                    <a href="{{ site.baseurl }}/writing" {% if page.url == "/writing/" %}class="active"{% endif %}>writing</a>
+                    <a href="{{ site.baseurl }}/about" {% if page.url == "/about/" %}class="active"{% endif %}>about</a>
                 </nav>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

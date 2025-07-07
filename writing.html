@@ -4,9 +4,27 @@ title: Writing
 permalink: /writing/
 ---
 
-{% for post in site.posts %}
-<article>
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <div class="meta">{{ post.date | date: "%B %d, %Y" }}</div>
-</article>
+{% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+{% for year in postsByYear %}
+<div class="year-group">
+    <h2>{{ year.name }}</h2>
+    <ul class="post-list">
+        {% for post in year.items %}
+        <li class="post-item">
+            <span class="post-date">{{ post.date | date: "%b %d" }}</span>
+            <span class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </span>
+            {% if post.tags.size > 0 %}
+            <span class="post-tags">
+                {% for tag in post.tags limit:2 %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endfor %}
