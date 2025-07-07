@@ -98,3 +98,17 @@ article {
   clip: auto;
   white-space: normal;
 }
+
+// Keyboard navigation indicator
+.keyboard-nav *:focus {
+  @include focus-style;
+}
+
+// Focus visible polyfill for older browsers
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible .focus-visible {
+  @include focus-style;
+}

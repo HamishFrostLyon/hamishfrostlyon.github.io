@@ -8,6 +8,8 @@
     --link-color: #0066cc;
     --tag-bg: #f0f0f0;
     --tag-text: #555;
+    --focus-color: #0066cc;
+    --focus-bg: rgba(0, 102, 204, 0.1);
 }
 
 // Dark theme colors
@@ -20,6 +22,8 @@
     --link-color: #4d94ff;
     --tag-bg: #2a2a2a;
     --tag-text: #aaa;
+    --focus-color: #4d94ff;
+    --focus-bg: rgba(77, 148, 255, 0.1);
 }
 
 // Breakpoints
@@ -29,3 +33,7 @@ $desktop: 1024px;
 
 // Spacing
 $spacing-unit: 1.25rem;
+
+// Focus styles
+$focus-outline-width: 3px;
+$focus-outline-offset: 2px;

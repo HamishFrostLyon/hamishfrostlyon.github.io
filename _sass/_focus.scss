@@ -1,0 +1,89 @@
+// Focus styles for accessibility
+// Using :focus-visible for better UX (only shows on keyboard focus)
+
+// Base focus style mixin
+@mixin focus-style {
+  outline: 3px solid var(--focus-color, var(--link-color));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// Remove default focus styles
+*:focus {
+  outline: none;
+}
+
+// Apply custom focus styles only for keyboard navigation
+*:focus-visible {
+  @include focus-style;
+}
+
+// Specific element focus styles
+a:focus-visible {
+  @include focus-style;
+  text-decoration: none;
+}
+
+button:focus-visible,
+.icon-button:focus-visible {
+  @include focus-style;
+  outline-offset: 0;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @include focus-style;
+  outline-offset: 0;
+}
+
+// Skip link focus (always visible when focused)
+.skip-link:focus {
+  @include focus-style;
+  outline-offset: 0;
+}
+
+// Search input focus
+.search-input:focus-visible {
+  outline: none; // Remove since we have border
+  border-bottom-color: var(--focus-color, var(--link-color));
+  border-bottom-width: 2px;
+}
+
+// Tag focus
+.tag:focus-visible {
+  @include focus-style;
+  outline-offset: -2px;
+}
+
+// Download link focus
+.download-links a:focus-visible {
+  @include focus-style;
+  outline-offset: -2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  *:focus-visible {
+    outline-width: 4px;
+    outline-color: currentColor;
+  }
+}
+
+// Windows high contrast mode
+@media (prefers-contrast: high) and (-ms-high-contrast: active) {
+  *:focus-visible {
+    outline: 4px solid;
+  }
+}
+
+// Focus within for parent elements
+.search-wrapper:focus-within {
+  box-shadow: 0 0 0 3px var(--focus-color, var(--link-color));
+}
+
+// Ensure focus is never hidden
+.no-focus-outline *:focus {
+  outline: 3px solid var(--focus-color, var(--link-color)) !important;
+  outline-offset: 2px !important;
+}
