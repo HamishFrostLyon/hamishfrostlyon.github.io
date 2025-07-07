@@ -4,34 +4,114 @@
     box-sizing: border-box;
 }
 
+// WCAG AAA Typography
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    letter-spacing: 0.02em;  // Improves readability
     color: var(--text-color);
     background: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    
+    // WCAG AAA: User must be able to select text
+    user-select: text;
+    -webkit-user-select: text;
 }
 
+// WCAG AAA: Paragraph spacing
+p {
+    margin-bottom: $paragraph-spacing;
+    max-width: 65ch; // Optimal line length for readability
+}
+
+// Links must be distinguishable
 a {
     color: var(--link-color);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.1em;
+    transition: all 0.2s ease;
     
     &:hover {
-        text-decoration: underline;
+        color: var(--link-hover);
+        text-decoration-thickness: 2px;
+    }
+    
+    &:visited {
+        color: var(--link-color);
     }
 }
 
+// Headings with proper contrast
 h1, h2, h3, h4, h5, h6 {
-    letter-spacing: -0.01em;
-    font-weight: 500;
+    color: var(--text-color);
+    line-height: $line-height-heading;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 0;
 }
 
 h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
 h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+// Small text requires only 4.5:1 contrast
+small, .small {
+    font-size: $font-size-small;
+    color: var(--text-secondary);
+}
+
+// Large text (18px+ or 14px+ bold) requires only 4.5:1 contrast
+.large {
+    font-size: $font-size-large;
+}
+
+// Code blocks with proper contrast
+code {
+    background: var(--bg-secondary);
+    padding: 0.125em 0.25em;
+    border-radius: 3px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    background: var(--bg-secondary);
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    
+    code {
+        background: none;
+        padding: 0;
+    }
+}
+
+// Ensure images don't break contrast
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Selection colors with proper contrast
+::selection {
+    background: var(--focus-bg);
+    color: var(--text-color);
+}
+
+::-moz-selection {
+    background: var(--focus-bg);
+    color: var(--text-color);
 }

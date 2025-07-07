@@ -1,0 +1,40 @@
+<div class="reading-preferences" role="toolbar" aria-label="Reading preferences">
+    <button onclick="adjustFontSize(1.1)" aria-label="Increase text size" class="icon-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="14">A+</text>
+        </svg>
+    </button>
+    <button onclick="adjustFontSize(0.9)" aria-label="Decrease text size" class="icon-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="12">A-</text>
+        </svg>
+    </button>
+    <button onclick="resetFontSize()" aria-label="Reset text size" class="icon-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="13">A</text>
+        </svg>
+    </button>
+</div>
+
+<script>
+function adjustFontSize(multiplier) {
+    const root = document.documentElement;
+    const currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--user-font-size') || 1);
+    const newSize = Math.max(0.8, Math.min(2, currentSize * multiplier));
+    root.style.setProperty('--user-font-size', newSize);
+    localStorage.setItem('fontSize', newSize);
+}
+
+function resetFontSize() {
+    document.documentElement.style.setProperty('--user-font-size', 1);
+    localStorage.removeItem('fontSize');
+}
+
+// Load saved preference
+document.addEventListener('DOMContentLoaded', function() {
+    const savedSize = localStorage.getItem('fontSize');
+    if (savedSize) {
+        document.documentElement.style.setProperty('--user-font-size', savedSize);
+    }
+});
+</script>
