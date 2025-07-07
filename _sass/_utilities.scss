@@ -48,3 +48,30 @@ article {
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
+
+// Skip navigation links
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border: 2px solid var(--text-color);
+  border-radius: 0 0 4px 0;
+  
+  &:focus {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

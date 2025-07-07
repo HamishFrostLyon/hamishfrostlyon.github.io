@@ -3,9 +3,9 @@
         <h1><a href="{{ site.baseurl }}/writing">{{ site.title }}, {{ site.tagline }}.</a></h1>
     </div>
     <div class="header-right">
-        <nav>
-            <a href="{{ site.baseurl }}/writing" {% if page.url == "/writing/" %}class="active"{% endif %}>writing</a>
-            <a href="{{ site.baseurl }}/about" {% if page.url == "/about/" %}class="active"{% endif %}>about</a>
+        <nav id="navigation" role="navigation" aria-label="Main navigation">
+            <a href="{{ site.baseurl }}/writing" {% if page.url == "/writing/" %}class="active" aria-current="page"{% endif %}>writing</a>
+            <a href="{{ site.baseurl }}/about" {% if page.url == "/about/" %}class="active" aria-current="page"{% endif %}>about</a>
         </nav>
         <div class="header-actions">
             {% include search.html %}

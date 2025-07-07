@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
+    {% include skip-links.html %}
+    
     <div class="container">
         {% include header.html %}
         
-        <main>
+        <main id="main" role="main">
             {{ content }}
         </main>
         
