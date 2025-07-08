@@ -379,3 +379,24 @@ p a, li a, .post-title a {
     font-size: 0.8rem;
     color: var(--text-secondary);
 }
+
+// MathJax equation styling
+.MathJax_Display {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.MathJax {
+    // Inline math styling
+    &:not(.MathJax_Display) {
+        background: var(--bg-secondary);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        font-size: 0.95em;
+        border: 1px solid var(--border-color);
+    }
+}
