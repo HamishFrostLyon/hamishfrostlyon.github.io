@@ -1,0 +1,19 @@
+# Build directories
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+
+# Bundler
+Gemfile.lock

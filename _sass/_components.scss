@@ -4,16 +4,15 @@
 }
 
 .search-wrapper {
-    display: flex;
-    align-items: center;
+    @include flex-start;
     background: var(--bg-color);
     border-radius: 20px;
     padding-right: 0;
-    transition: all 0.3s ease;
+    @include transition(all, 0.3s);
     position: relative;
     
     &.active {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        @include card-shadow(1);
         border: 2px solid var(--border-color);
         padding: 0.25rem 0.5rem 0.25rem 1rem;
     }
@@ -26,7 +25,7 @@
     background: transparent;
     color: var(--text-color);
     font-size: $font-size-base;
-    transition: width 0.3s ease;
+    @include transition(width, 0.3s);
     opacity: 0;
     
     .search-wrapper.active & {
@@ -50,26 +49,7 @@
 
 // Icon buttons with proper contrast
 .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-    border-radius: 4px;
-    
-    &:hover {
-        transform: scale(1.1);
-        background: var(--focus-bg);
-    }
-    
-    svg {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
+    @include icon-button;
 }
 
 // Post list with WCAG AAA colors
@@ -90,24 +70,6 @@
     }
 }
 
-// Tags with proper contrast
-.tag {
-    font-size: $font-size-small;
-    padding: 0.25rem 0.5rem;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    border-radius: 3px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    display: inline-block;
-    
-    &:hover {
-        background: var(--tag-hover-bg);
-        color: var(--tag-hover-text);
-        text-decoration: none;
-    }
-}
 
 // Meta information
 .meta {
@@ -156,8 +118,8 @@ p a, li a, .post-title a {
 
 // Reading time
 .reading-time {
+    @include flex-start;
     display: inline-flex;
-    align-items: center;
     gap: 0.25rem;
     color: var(--text-secondary);
     font-size: $font-size-small;
@@ -184,29 +146,18 @@ p a, li a, .post-title a {
     border-top: 1px solid var(--border-color);
 }
 
-.post-tags {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.tags-label {
-    color: var(--text-secondary);
-    font-size: $font-size-small;
-}
 
 // Social links
 .social-links {
     margin-top: 1rem;
     
     a {
+        @include flex-start;
         display: inline-flex;
-        align-items: center;
         gap: 0.5rem;
         color: var(--text-secondary);
         text-decoration: none;
-        transition: color 0.2s ease;
+        @include transition(color);
         
         &:hover {
             color: var(--link-color);
@@ -219,7 +170,7 @@ p a, li a, .post-title a {
         svg {
             width: 1.25rem;
             height: 1.25rem;
-            transition: stroke 0.2s ease;
+            @include transition(stroke);
         }
     }
 }
@@ -231,13 +182,13 @@ p a, li a, .post-title a {
 }
 
 .post-item {
-    display: flex;
+    @include flex-start;
     align-items: baseline;
     gap: $spacing-sm;
     margin-bottom: $spacing-sm;
     
     @include respond-max('mobile') {
-        flex-direction: column;
+        @include flex-column;
         gap: $spacing-xs;
         align-items: flex-start;
     }
@@ -382,15 +333,14 @@ p a, li a, .post-title a {
 }
 
 .share-buttons-list {
-    display: flex;
+    @include flex-start;
     gap: 0.75rem;
-    align-items: center;
     flex-wrap: wrap;
 }
 
 .share-button {
+    @include flex-start;
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--border-color);
@@ -401,7 +351,7 @@ p a, li a, .post-title a {
     font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    @include transition(all);
     min-height: 44px; // WCAG touch target
     
     &:hover {
