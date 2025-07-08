@@ -92,4 +92,22 @@
     {% endif %}
     
     {% include structured-data.html %}
+    
+    <!-- Mathematical notation support -->
+    {% if page.has_math or layout.has_math %}
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    {% endif %}
 </head>
