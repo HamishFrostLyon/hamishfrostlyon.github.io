@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-</head>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% include head.html %}
 <body>
     {% include skip-links.html %}
     
@@ -21,5 +16,6 @@
     
     {% include search-data.html %}
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-    <script src="{{ ./assets/js/keyboard-nav.js. | relative_url }}"></script></body>
+    <script src="{{ '/assets/js/keyboard-nav.js' | relative_url }}"></script>
+</body>
 </html>

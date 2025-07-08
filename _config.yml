@@ -38,3 +38,29 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENSE
+
+# SEO and feeds
+author:
+  name: Hamish Lyon
+  email: hamish@stabilityand.com
+
+# Site verification
+google_site_verification: # Add your Google verification code
+bing_site_verification: # Add your Bing verification code
+
+# Social
+twitter:
+  username: hamishLyon
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# SEO
+lang: en
+keywords:
+  - management consulting
+  - digital transformation
+  - operations strategy
+  - business strategy

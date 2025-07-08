@@ -1,0 +1,13 @@
+# Default SEO settings
+title_separator: " | "
+tagline_separator: " - "
+locale: "en_US"
+logo: "/assets/images/logo.png"
+twitter:
+  username: "@hamishLyon"
+  card: "summary"
+social:
+  name: "Hamish Lyon"
+  links:
+    - "https://twitter.com/hamishLyon"
+    - "https://linkedin.com/in/hamishLyon"

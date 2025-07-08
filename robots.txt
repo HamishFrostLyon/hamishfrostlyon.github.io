@@ -1,0 +1,9 @@
+---
+layout: null
+---
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /admin/
+
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml

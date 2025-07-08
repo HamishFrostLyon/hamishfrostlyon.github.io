@@ -2,8 +2,11 @@
 layout: post
 title: "Strategic Planning in Uncertain Times"
 date: 2022-03-11
-tags: [strategy, planning]
+last_modified_at: 2022-03-11
+tags: [strategy, planning, uncertainty, leadership]
 excerpt: "In my experience advising Fortune 500 leadership teams, uncertainty has become the only constant. Traditional five-year strategic plans are giving way to more adaptive approaches."
+image: /assets/images/strategic-planning.jpg
+image_alt: "Strategic planning visualization"
 ---
 
 In my experience advising Fortune 500 leadership teams, uncertainty has become the only constant. Traditional five-year strategic plans are giving way to more adaptive approaches.
