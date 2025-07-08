@@ -11,13 +11,17 @@ In operations management and quality control, detecting when a process has funda
 
 ## Information-Theoretic Approach
 
-The concept of mathematical surprise comes from information theory, where we measure how unexpected an observation is given our current understanding of the system. The information content (or surprise) of an observation is calculated as:
+The concept of mathematical surprise comes from information theory, where we measure how unexpected an observation is given our current understanding of the system. 
 
-$$I_t = -\log_2 P(y_t | y_1, ..., y_{t-1})$$
+Test equation: $$E = mc^2$$
+
+The information content (or surprise) of an observation is calculated as:
+
+$$I_t = -\log_2 P(y_t \mid y_1, ..., y_{t-1})$$
 
 Where:
-- $I_t$ is the information content of observation $t$
-- $P(y_t | y_1, ..., y_{t-1})$ is the probability of observing $y_t$ given the historical data
+- $$I_t$$ is the information content of observation $$t$$
+- $$P(y_t \mid y_1, ..., y_{t-1})$$ is the probability of observing $$y_t$$ given the historical data
 
 High information content suggests that our current model of the process is inadequate - in other words, something has changed.
 
