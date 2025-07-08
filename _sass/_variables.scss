@@ -22,16 +22,6 @@
     --border-color: #d0d0d0;       // Borders don't need contrast
     --hover-color: #1d1d1d;
     
-    // Component colors
-    --tag-bg: #f0f0f0;
-    --tag-text: #1d1d1d;           // 18.1:1 on tag background
-    --tag-hover-bg: #1d1d1d;
-    --tag-hover-text: #ffffff;
-    
-    // Status colors
-    --success-color: #0d7a0d;      // 7:1 contrast
-    --warning-color: #7a4f00;      // 7.1:1 contrast
-    --error-color: #aa0000;        // 7.3:1 contrast
 }
 
 // Dark theme colors
@@ -55,16 +45,6 @@
     --border-color: #404040;
     --hover-color: #f0f0f0;
     
-    // Component colors
-    --tag-bg: #2d2d2d;
-    --tag-text: #f0f0f0;           // 13.5:1 on tag background
-    --tag-hover-bg: #f0f0f0;
-    --tag-hover-text: #1a1a1a;
-    
-    // Status colors (adjusted for dark background)
-    --success-color: #4ade80;      // 7.1:1 contrast
-    --warning-color: #fbbf24;      // 7.2:1 contrast
-    --error-color: #f87171;        // 7.1:1 contrast
 }
 
 // High contrast mode

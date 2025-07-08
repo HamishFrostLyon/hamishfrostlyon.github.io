@@ -21,14 +21,6 @@ lang: en-AU
             <span class="post-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </span>
-            {% if post.tags.size > 0 %}
-            <span class="post-tags" role="list" aria-label="Tags">
-                {% for tag in post.tags limit:2 %}
-                <span class="tag" role="listitem">{{ tag }}</span>
-                {% endfor %}
-            </span>
-            {% endif %}
-            {% include download-icons.html path=post.path title=post.title %}
         </li>
         {% endfor %}
     </ul>

@@ -120,36 +120,6 @@
     margin-bottom: 1rem;
 }
 
-// Download links with proper contrast
-.download-links {
-    display: inline-flex;
-    gap: 0.5rem;
-    align-items: center;
-    
-    a {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.25rem;
-        border-radius: 4px;
-        background: var(--tag-bg);
-        transition: background-color 0.2s ease;
-        
-        &:hover {
-            background: var(--tag-hover-bg);
-            
-            svg {
-                stroke: var(--tag-hover-text);
-            }
-        }
-    }
-    
-    svg {
-        width: 16px;
-        height: 16px;
-        stroke: var(--tag-text);
-        flex-shrink: 0;
-    }
-}
 
 // Search results
 .search-results {
