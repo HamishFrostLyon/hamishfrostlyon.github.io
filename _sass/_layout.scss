@@ -99,3 +99,16 @@ body {
         right: 1rem;
     }
 }
+
+// Post layout styles
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5625rem;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 2rem;
+}
