@@ -13,8 +13,6 @@ In operations management and quality control, detecting when a process has funda
 
 The concept of mathematical surprise comes from information theory, where we measure how unexpected an observation is given our current understanding of the system. 
 
-Test equation: $$E = mc^2$$
-
 The information content (or surprise) of an observation is calculated as:
 
 $$I_t = -\log_2 P(y_t \mid y_1, ..., y_{t-1})$$
