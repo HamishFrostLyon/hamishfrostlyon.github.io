@@ -2,15 +2,37 @@
 layout: default
 ---
 {% assign filename = page.path | split: '/' | last | replace: '.md', '' %}
-<article role="article" aria-labelledby="post-title">
+<article role="article" aria-labelledby="post-title" itemscope itemtype="https://schema.org/BlogPosting">
     <header style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 25px;">
-        <h1 id="post-title" style="margin: 0; font-size: 2rem;">{{ page.title }}</h1>
+        <h1 id="post-title" style="margin: 0; font-size: 2rem;" itemprop="headline">{{ page.title }}</h1>
         {% include download-icons.html path=page.path title=page.title %}
     </header>
     <div class="meta">
-        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}" itemprop="datePublished">
+            {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        <span class="meta-separator" aria-hidden="true">·</span>
+        {% include reading-time.html content=page.content %}
+        {% if page.last_modified_at %}
+        <span class="meta-separator" aria-hidden="true">·</span>
+        <span class="last-modified">
+            Updated <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}" itemprop="dateModified">
+                {{ page.last_modified_at | date: "%B %d, %Y" }}
+            </time>
+        </span>
+        {% endif %}
     </div>
-    <div class="post-content">
+    <div class="post-content" itemprop="articleBody">
         {{ content }}
     </div>
+    <footer class="post-footer">
+        {% if page.tags.size > 0 %}
+        <div class="post-tags" role="list" aria-label="Article tags">
+            <span class="tags-label">Tagged:</span>
+            {% for tag in page.tags %}
+            <a href="/tags/{{ tag | slugify }}" class="tag" rel="tag" itemprop="keywords">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </footer>
 </article>

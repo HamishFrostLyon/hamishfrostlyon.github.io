@@ -1,0 +1,9 @@
+{% assign words = include.content | strip_html | number_of_words %}
+{% assign reading_time = words | divided_by: 200 | plus: 1 %}
+<span class="reading-time" aria-label="{{ reading_time }} minute read">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" class="reading-time-icon" aria-hidden="true">
+        <circle cx="8" cy="8" r="7"></circle>
+        <polyline points="8 4 8 8 10 10"></polyline>
+    </svg>
+    {{ reading_time }} min read
+</span>

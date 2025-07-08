@@ -175,3 +175,45 @@ p a, li a, .post-title a {
     min-height: auto;
     min-width: auto;
 }
+
+// Reading time
+.reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-secondary);
+    font-size: $font-size-small;
+}
+
+.reading-time-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.meta-separator {
+    margin: 0 0.5rem;
+    color: var(--text-tertiary);
+}
+
+.last-modified {
+    color: var(--text-secondary);
+    font-size: $font-size-small;
+}
+
+.post-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tags-label {
+    color: var(--text-secondary);
+    font-size: $font-size-small;
+}
