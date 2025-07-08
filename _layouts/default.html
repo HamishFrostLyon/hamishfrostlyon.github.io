@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en-AU' }}" 
+      dir="{{ page.dir | default: 'ltr' }}">
 {% include head.html %}
 <body>
     {% include skip-links.html %}
@@ -7,7 +8,7 @@
     <div class="container">
         {% include header.html %}
         
-        <main id="main" role="main">
+        <main id="main" role="main" lang="{{ page.content_lang | default: page.lang | default: site.lang | default: 'en-AU' }}">
             {{ content }}
         </main>
         
@@ -15,6 +16,7 @@
     </div>
     
     {% include search-data.html %}
+    {% include structured-data.html %}
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/keyboard-nav.js' | relative_url }}"></script>
 </body>

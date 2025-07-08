@@ -217,3 +217,31 @@ p a, li a, .post-title a {
     color: var(--text-secondary);
     font-size: $font-size-small;
 }
+
+// Social links
+.social-links {
+    margin-top: 1rem;
+    
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        
+        &:hover {
+            color: var(--link-color);
+            
+            svg {
+                stroke: var(--link-color);
+            }
+        }
+        
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            transition: stroke 0.2s ease;
+        }
+    }
+}

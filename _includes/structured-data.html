@@ -13,15 +13,19 @@
     {% else %}
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     {% endif %}
+    "inLanguage": "en-AU",
     "author": {
         "@type": "Person",
         "name": {{ site.author.name | jsonify }},
         "url": "{{ '/about' | absolute_url }}",
-        "sameAs": [
-            {% for link in site.data.seo.social.links %}
-            {{ link | jsonify }}{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        ]
+        "nationality": "Australian",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Perth",
+            "addressRegion": "WA",
+            "addressCountry": "AU"
+        },
+        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
     },
     "publisher": {
         "@type": "Person",
@@ -48,20 +52,24 @@
     "name": "About {{ site.author.name }}",
     "description": {{ page.excerpt | default: site.description | strip_html | jsonify }},
     "url": "{{ page.url | absolute_url }}",
+    "inLanguage": "en-AU",
     "mainEntity": {
         "@type": "Person",
         "name": {{ site.author.name | jsonify }},
         "jobTitle": "Management Consultant",
+        "nationality": "Australian",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Perth",
+            "addressRegion": "WA",
+            "addressCountry": "AU"
+        },
         "worksFor": {
-            "@type": "Organization",
+            "@type": "Organisation",
             "name": "Independent Consultant"
         },
-        "description": "Management consultant specializing in operations strategy and digital transformation",
-        "sameAs": [
-            {% for link in site.data.seo.social.links %}
-            {{ link | jsonify }}{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        ],
+        "description": "Management consultant specialising in operations strategy and digital transformation",
+        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
         "knowsAbout": [
             "Management Consulting",
             "Digital Transformation",
@@ -70,119 +78,55 @@
             "Change Management"
         ]
     }
-    {% elsif page.url == "/writing/" %}
-    "@type": "CollectionPage",
-    "name": {{ page.title | default: "Writing" | jsonify }},
-    "description": "Collection of articles on strategy, operations, and digital transformation",
-    "url": "{{ page.url | absolute_url }}",
-    "hasPart": [
-        {% for post in site.posts limit:10 %}
-        {
-            "@type": "BlogPosting",
-            "headline": {{ post.title | jsonify }},
-            "url": "{{ post.url | absolute_url }}",
-            "datePublished": "{{ post.date | date_to_xmlschema }}",
-            "author": {
-                "@type": "Person",
-                "name": {{ site.author.name | jsonify }}
-            }
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ]
     {% else %}
     "@type": "WebSite",
     "name": {{ site.title | jsonify }},
     "description": {{ site.description | jsonify }},
     "url": "{{ site.url }}",
+    "inLanguage": "en-AU",
+    "publisher": {
+        "@type": "Person",
+        "name": {{ site.author.name | jsonify }},
+        "nationality": "Australian",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Perth",
+            "addressRegion": "WA",
+            "addressCountry": "AU"
+        },
+        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
+    },
     "potentialAction": {
         "@type": "SearchAction",
         "target": "{{ site.url }}/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
-    },
-    "author": {
-        "@type": "Person",
-        "name": {{ site.author.name | jsonify }},
-        "url": "{{ '/about' | absolute_url }}"
     }
     {% endif %}
 }
 </script>
 
-{% if page.layout == "post" %}
-<!-- Breadcrumb structured data -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "{{ site.url }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Writing",
-            "item": "{{ '/writing' | absolute_url }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": {{ page.title | jsonify }},
-            "item": "{{ page.url | absolute_url }}"
-        }
-    ]
-}
-</script>
-
-<!-- FAQ structured data if FAQ section exists -->
-{% if page.faq %}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {% for item in page.faq %}
-        {
-            "@type": "Question",
-            "name": {{ item.question | jsonify }},
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": {{ item.answer | jsonify }}
-            }
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ]
-}
-</script>
-{% endif %}
-{% endif %}
-
-<!-- Organization structured data -->
+<!-- Person structured data -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": {{ site.author.name | jsonify }},
     "alternateName": {{ site.title | jsonify }},
-    "description": "Management consultant specializing in operations strategy and digital transformation",
+    "description": "Management consultant specialising in operations strategy and digital transformation",
     "url": "{{ site.url }}",
     "image": "{{ '/assets/images/profile.jpg' | absolute_url }}",
-    "sameAs": [
-        {% for link in site.data.seo.social.links %}
-        {{ link | jsonify }}{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ],
+    "nationality": "Australian",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Perth",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+    },
+    "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
     "jobTitle": "Management Consultant",
     "worksFor": {
-        "@type": "Organization",
+        "@type": "Organisation",
         "name": "Independent Consultant"
-    },
-    "alumniOf": {
-        "@type": "Organization",
-        "name": "Your University"
     },
     "knowsAbout": [
         "Management Consulting",
@@ -191,13 +135,13 @@
         "Business Strategy",
         "Change Management",
         "Leadership Development",
-        "Organizational Design"
+        "Organisational Design"
     ],
     "hasOccupation": {
         "@type": "Occupation",
         "name": "Management Consultant",
         "occupationalCategory": "13-1111.00",
-        "description": "Analyze and solve complex business problems for clients"
+        "description": "Analyse and solve complex business problems for clients"
     }
 }
 </script>
