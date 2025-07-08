@@ -15,6 +15,16 @@
     display: none;
 }
 
+// Lazy loading styles
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img.lazy-loaded {
+    opacity: 1;
+}
+
 // Content spacing
 .post-content {
     margin-top: 2.5rem;

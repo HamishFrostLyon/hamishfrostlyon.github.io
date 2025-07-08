@@ -55,8 +55,24 @@
     <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
     <meta name="theme-color" content="#ffffff">
     
-    <!-- CSS -->
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    
+    <!-- CSS with font loading optimization -->
+    <link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Font loading strategy -->
+    <style>
+        /* Critical font-face declarations */
+        @font-face {
+            font-family: system-ui;
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto');
+        }
+    </style>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>

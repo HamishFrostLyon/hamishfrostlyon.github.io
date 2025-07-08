@@ -1,0 +1,120 @@
+// Print styles
+@media print {
+    // Reset colors for print
+    * {
+        color: #000 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    // Page setup
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+    
+    // Typography
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 {
+        font-size: 24pt;
+        page-break-after: avoid;
+    }
+    
+    h2 {
+        font-size: 18pt;
+        page-break-after: avoid;
+    }
+    
+    h3 {
+        font-size: 14pt;
+        page-break-after: avoid;
+    }
+    
+    p, li {
+        font-size: 12pt;
+        line-height: 1.6;
+    }
+    
+    // Layout adjustments
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    // Hide non-essential elements
+    .theme-toggle,
+    .search-wrapper,
+    .skip-links,
+    .reading-preferences,
+    .download-icons,
+    .post-tags,
+    footer,
+    nav {
+        display: none !important;
+    }
+    
+    // Show URLs for links
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        font-weight: normal;
+    }
+    
+    // Avoid page breaks
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    img {
+        page-break-inside: avoid;
+        max-width: 100% !important;
+    }
+    
+    blockquote, pre, table {
+        page-break-inside: avoid;
+    }
+    
+    // Ensure content starts on new page
+    article {
+        page-break-before: always;
+    }
+    
+    // Print header info
+    header:after {
+        content: "Printed from: " attr(data-url);
+        display: block;
+        font-size: 10pt;
+        color: #666;
+        margin-top: 1em;
+    }
+    
+    // Optimize tables
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th, td {
+        border: 1px solid #000;
+        padding: 0.5em;
+    }
+    
+    // Code blocks
+    pre {
+        border: 1px solid #000;
+        padding: 1em;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    
+    code {
+        font-family: 'Courier New', monospace;
+        font-size: 10pt;
+    }
+}
