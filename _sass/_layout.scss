@@ -58,14 +58,19 @@ nav {
     gap: $spacing-unit;
     
     a {
-        color: var(--text-color);
-        text-decoration: none;
+        color: var(--text-color) !important;
+        text-decoration: none !important;
         font-size: 0.95rem;
         transition: opacity 0.2s ease;
         
         &:hover {
             opacity: 0.7;
-            text-decoration: none;
+            text-decoration: none !important;
+            color: var(--text-color) !important;
+        }
+        
+        &:visited {
+            color: var(--text-color) !important;
         }
         
         &.active {
@@ -74,12 +79,31 @@ nav {
     }
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
 footer {
     margin-top: 5rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border-color);
     font-size: 0.85rem;
     color: var(--text-secondary);
+    
+    p {
+        margin-bottom: 0;
+        hyphens: auto;
+        word-break: break-word;
+        line-height: 1.6;
+        
+        @media (max-width: $mobile) {
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+    }
 }
 
 // User preference scaling

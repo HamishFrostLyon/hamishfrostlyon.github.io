@@ -4,17 +4,13 @@
 }
 
 .search-wrapper {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     background: var(--bg-color);
     border-radius: 20px;
     padding-right: 0;
     transition: all 0.3s ease;
-    z-index: 10;
+    position: relative;
     
     &.active {
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
