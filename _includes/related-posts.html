@@ -1,0 +1,34 @@
+{% assign max_related = 3 %}
+{% assign min_common_tags = 1 %}
+
+{% comment %}
+  Find related posts by checking for posts that:
+  1. Are not the current post
+  2. Are published (not future dated)
+  3. Get the 3 most recent posts
+{% endcomment %}
+
+{% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | slice: 0, max_related %}
+
+{% if related_posts.size > 0 %}
+<aside class="related-posts" role="complementary" aria-labelledby="related-heading">
+    <h3 id="related-heading">More Writing</h3>
+    <div class="related-posts-grid">
+        {% for post in related_posts %}
+        <article class="related-post">
+            <h4 class="related-post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h4>
+            <time class="related-post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+                {{ post.date | date: "%-d %b %Y" }}
+            </time>
+            {% if post.excerpt %}
+            <p class="related-post-excerpt">
+                {{ post.excerpt | strip_html | truncate: 120 }}
+            </p>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+</aside>
+{% endif %}
