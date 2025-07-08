@@ -12,18 +12,18 @@ lang: en-AU
 {% for year in postsByYear %}
 <section class="year-group" aria-labelledby="year-{{ year.name }}">
     <h2 id="year-{{ year.name }}">{{ year.name }}</h2>
-    <ul class="post-list" role="list">
+    <div class="post-list" role="list">
         {% for post in year.items %}
-        <li class="post-item" role="listitem">
+        <div class="post-item" role="listitem">
             <span class="post-date">
                 <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b" }}</time>
             </span>
             <span class="post-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </span>
-        </li>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </section>
 {% endfor %}
 </div>

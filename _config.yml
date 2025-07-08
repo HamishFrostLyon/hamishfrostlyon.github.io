@@ -1,6 +1,5 @@
 title: Hamish Lyon
 tagline: Management Consultant
-email: hamish@stabilityand.com
 description: Management consultant writing about strategy, operations, and digital transformation
 url: https://hamishfrostlyon.github.io
 baseurl: ""
@@ -17,7 +16,6 @@ timezone: Australia/Perth
 # Author
 author:
   name: Hamish Lyon
-  email: hamish@stabilityand.com
   linkedin: hamishfrostlyon
 
 # Site verification
