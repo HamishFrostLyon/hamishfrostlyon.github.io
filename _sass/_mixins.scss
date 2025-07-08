@@ -11,18 +11,31 @@
     outline-offset: $offset;
 }
 
-// Responsive media query mixin
+// Mobile-first responsive media query mixin
 @mixin respond-to($breakpoint) {
-    @if $breakpoint == 'mobile' {
-        @media (max-width: $mobile-width) {
-            @content;
-        }
-    } @else if $breakpoint == 'tablet' {
-        @media (max-width: $tablet-width) {
+    @if $breakpoint == 'tablet' {
+        @media (min-width: $tablet) {
             @content;
         }
     } @else if $breakpoint == 'desktop' {
-        @media (min-width: $desktop-width) {
+        @media (min-width: $desktop) {
+            @content;
+        }
+    } @else if $breakpoint == 'large' {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+// Legacy max-width mixin for specific cases
+@mixin respond-max($breakpoint) {
+    @if $breakpoint == 'mobile' {
+        @media (max-width: #{$mobile - 1px}) {
+            @content;
+        }
+    } @else if $breakpoint == 'tablet' {
+        @media (max-width: #{$tablet - 1px}) {
             @content;
         }
     }

@@ -119,7 +119,7 @@ function initializeSearch() {
     }
 }
 
-// Theme functionality
+// Theme functionality with system preference detection
 function initializeTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
@@ -129,10 +129,32 @@ function initializeTheme() {
         return;
     }
     
+    // Detect system preference
+    function getSystemTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    }
+    
     // Set initial theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
+    const savedTheme = localStorage.getItem('theme');
+    const initialTheme = savedTheme || getSystemTheme();
+    html.setAttribute('data-theme', initialTheme);
     updateThemeAria();
+    
+    // Listen for system theme changes
+    if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', function(e) {
+            // Only auto-update if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                const systemTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', systemTheme);
+                updateThemeAria();
+            }
+        });
+    }
     
     // Theme toggle handler
     themeToggle.addEventListener('click', function() {
