@@ -113,20 +113,25 @@ Pattern surprise = $-\log_2(2.3 \times 10^{-4}) \approx 12.1$ bits
 
 **The Equivalence**: Using weights of $w_m = 0.7$ and $w_p = 0.8$:
 
-- Scenario A total surprise: $0.7 \times 14.0 = 9.8$ bits
-- Scenario B total surprise: $0.8 \times 12.1 = 9.7$ bits
+Scenario A total surprise: $0.7 \times 14.0 = 9.8$ bits
+
+Scenario B total surprise: $0.8 \times 12.1 = 9.7$ bits
 
 Both scenarios generate essentially equivalent surprise levels despite manifesting completely differently. Traditional control charts would trigger Rule 1 for Scenario A and Rule 2 for Scenario B, providing no guidance about which situation is more urgent. Unified surprise theory establishes mathematical equivalence: both represent approximately 10 bits of unexpected information and deserve equivalent attention.
 
 ### Implementation Architecture
 
-The computational requirements are surprisingly modest. For each new observation:
+The computational requirements are surprisingly modest. For each new observation, the system performs five steps:
 
-1. **Update Recent History**: Maintain a sliding window of recent observations (typically 20-50 points)
-2. **Calculate Magnitude Surprise**: $I_m = -\log_2 P(y_t \mid \mu, \sigma)$ where $\mu$ and $\sigma$ are estimated from recent history
-3. **Evaluate Pattern Surprise**: $I_p = -\log_2 P(\text{pattern})$ where pattern probability considers runs, trends, and other systematic deviations
-4. **Combine Weighted Surprise**: $S_t = w_m \cdot I_m + w_p \cdot I_p$
-5. **Compare to Threshold**: Trigger alerts when $S_t$ exceeds established limits
+**Update Recent History**: Maintain a sliding window of recent observations (typically 20-50 points)
+
+**Calculate Magnitude Surprise**: $I_m = -\log_2 P(y_t \mid \mu, \sigma)$ where $\mu$ and $\sigma$ are estimated from recent history
+
+**Evaluate Pattern Surprise**: $I_p = -\log_2 P(\text{pattern})$ where pattern probability considers runs, trends, and other systematic deviations
+
+**Combine Weighted Surprise**: $S_t = w_m \cdot I_m + w_p \cdot I_p$
+
+**Compare to Threshold**: Trigger alerts when $S_t$ exceeds established limits
 
 The key insight is that surprise calculation adapts automatically to changing process conditions. Unlike fixed control limits, surprise thresholds respond to process shifts by updating probability estimates in real-time.
 
