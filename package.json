@@ -13,9 +13,6 @@
     "lint": "npm run lint:css && npm run lint:js",
     "lint:fix": "npm run lint:css:fix && npm run lint:js:fix",
     "test": "npm run format:check && npm run lint",
-    "images:optimize": "imagemin assets/images/*.{png,jpg,jpeg} --out-dir=assets/images/optimized --plugin=imagemin-pngquant --plugin=imagemin-mozjpeg",
-    "images:responsive": "sharp resize 400 800 1200 --format webp png --input assets/images --output assets/images/responsive",
-    "build:images": "npm run images:optimize && npm run images:responsive",
     "build:jekyll": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve --livereload"
   },
@@ -24,11 +21,7 @@
     "stylelint": "^16.1.0",
     "stylelint-config-standard-scss": "^13.0.0",
     "eslint": "^8.56.0",
-    "eslint-config-standard": "^17.1.0",
-    "imagemin-cli": "^8.0.0",
-    "imagemin-pngquant": "^10.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "sharp-cli": "^4.2.0"
+    "eslint-config-standard": "^17.1.0"
   },
   "prettier": {
     "semi": true,

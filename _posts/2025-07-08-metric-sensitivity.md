@@ -53,9 +53,8 @@ These rules became gospel in manufacturing. Quality textbooks presented them as 
 
 Here's what we need to acknowledge: these heuristics emerged from severe compute limitations, not mathematical principles. Western Electric derived them through trial and error constrained by the calculating technology of their era. They represent practical approximations developed when computing exact probabilities was impossible, not fundamental principles. Most troubling, they provide no framework for comparing the severity of different violations. Is Rule 1 more urgent than Rule 2? Should a four-sigma outlier trigger the same response as fourteen alternating points?
 
-{% responsive_image path: assets/images/historical-cost-of-computer-memory-and-storage.png alt: "Historical price of computer memory and storage showing exponential decline from $100 trillion per terabyte in 1956 to around $1,000 per terabyte in 2023" %}
-
-<p class="image-caption">The exponential decline in compute costs since the 1950s. Memory that cost $100 trillion per terabyte in 1956 now costs around $1,000 per terabyte—a nine-orders-of-magnitude improvement that renders compute-constrained heuristics obsolete.</p>
+![Historical price of computer memory and storage](/assets/images/historical-cost-of-computer-memory-and-storage.png)
+*The exponential decline in compute costs since the 1950s. Memory that cost $100 trillion per terabyte in 1956 now costs around $1,000 per terabyte—a nine-orders-of-magnitude improvement that renders compute-constrained heuristics obsolete.*
 
 Despite advances in compute power and statistical theory, most industrial process monitoring still relies on Shewhart's 1924 framework supplemented by Western Electric's 1956 heuristics. Organizations have automated the calculations and prettified the displays, but the underlying logic remains unchanged: watch for patterns that earlier engineers noticed and codified when compute resources couldn't support more sophisticated approaches.
 

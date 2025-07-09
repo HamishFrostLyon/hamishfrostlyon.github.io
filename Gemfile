@@ -1,10 +1,7 @@
 source "https://rubygems.org"
 
-# Jekyll and plugins (for GitHub Actions build)
-gem "jekyll", "~> 4.3.0"
-gem "jekyll-sitemap"
-gem "jekyll-feed"
-gem "jekyll-responsive-image"
+# GitHub Pages gem - includes Jekyll and approved plugins
+gem "github-pages", group: :jekyll_plugins
 
 # Additional gems for development and testing
 group :development, :test do
