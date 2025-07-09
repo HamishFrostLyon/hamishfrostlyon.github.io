@@ -19,12 +19,15 @@ header {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 100%;
     
-    @include respond-to('tablet') {
+    @media (min-width: 640px) {
         @include flex-between;
+        flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+    }
+    
+    @include respond-to('tablet') {
         padding: 2rem 0 2.5rem 0;
         margin-bottom: 2.5rem;
     }
