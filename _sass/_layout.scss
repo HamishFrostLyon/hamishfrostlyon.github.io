@@ -20,7 +20,7 @@ header {
     margin-bottom: 2rem;
     width: 100%;
     
-    @media (min-width: 640px) {
+    @media (min-width: $mobile) {
         @include flex-between;
         flex-direction: row;
         flex-wrap: nowrap;
