@@ -13,19 +13,14 @@
 }
 
 header {
-    @include flex-column;
+    @include flex-between;
+    flex-wrap: nowrap;
+    align-items: center;
     gap: $spacing-unit;
     padding: 1.5rem 0 2rem 0;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 2rem;
     width: 100%;
-    
-    @media (min-width: $mobile) {
-        @include flex-between;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
     
     @include respond-to('tablet') {
         padding: 2rem 0 2.5rem 0;
@@ -55,13 +50,10 @@ header {
 
 .header-right {
     @include flex-start;
-    justify-content: space-between;
-    width: 100%;
+    align-items: center;
     gap: 1rem;
     
     @include respond-to('tablet') {
-        width: auto;
-        justify-content: flex-end;
         gap: 1.5rem;
     }
     
@@ -73,11 +65,6 @@ header {
 nav {
     @include flex-start;
     gap: $spacing-unit;
-    margin-right: auto;
-    
-    @include respond-to('tablet') {
-        margin-right: $spacing-unit;
-    }
     
     a {
         color: var(--text-color) !important;
