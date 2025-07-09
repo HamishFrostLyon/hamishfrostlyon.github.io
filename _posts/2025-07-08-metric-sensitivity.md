@@ -38,14 +38,14 @@ But here's what most people don't know: Shewhart's three-sigma rule was arbitrar
 
 As control charts spread through American industry, practitioners discovered that dramatic outliers weren't the only sign of trouble. Patterns within the control limits often signaled process changes before points crossed the three-sigma boundaries. In 1956, Western Electric Company codified these observations into what became known as the Western Electric Rules:
 
-1. **Rule 1**: One point beyond 3 standard deviations
-2. **Rule 2**: Nine consecutive points on the same side of centerline
-3. **Rule 3**: Six consecutive points trending up or down
-4. **Rule 4**: Fourteen points alternating above and below centerline
-5. **Rule 5**: Two out of three consecutive points beyond 2 standard deviations
-6. **Rule 6**: Four out of five consecutive points beyond 1 standard deviation
-7. **Rule 7**: Fifteen consecutive points within 1 standard deviation
-8. **Rule 8**: Eight consecutive points beyond 1 standard deviation from centerline
+**Rule 1**: One point beyond 3 standard deviations
+**Rule 2**: Nine consecutive points on the same side of centerline
+**Rule 3**: Six consecutive points trending up or down
+**Rule 4**: Fourteen points alternating above and below centerline
+**Rule 5**: Two out of three consecutive points beyond 2 standard deviations
+**Rule 6**: Four out of five consecutive points beyond 1 standard deviation
+**Rule 7**: Fifteen consecutive points within 1 standard deviation
+**Rule 8**: Eight consecutive points beyond 1 standard deviation from centerline
 
 These rules became gospel in manufacturing. Quality textbooks presented them as scientific fact. ISO standards codified them. Generations of engineers learned to watch for "runs" and "trends" as distinct phenomena requiring separate attention.
 
@@ -88,10 +88,10 @@ The mathematical insight is that we can measure the information content of both 
 $$S_t = w_m \cdot I_m(y_t) + w_p \cdot I_p(y_{t-k:t})$$
 
 Where:
-- $S_t$ represents total surprise at time $t$
-- $I_m(y_t) = -\log_2 P(y_t \mid \text{recent history})$ measures magnitude surprise
-- $I_p(y_{t-k:t}) = -\log_2 P(\text{pattern} \mid \text{normal variation})$ measures pattern surprise  
-- $w_m$ and $w_p$ are weights that balance magnitude versus pattern sensitivity
+    $S_t$ represents total surprise at time $t$
+    $I_m(y_t) = -\log_2 P(y_t \mid \text{recent history})$ measures magnitude surprise
+    $I_p(y_{t-k:t}) = -\log_2 P(\text{pattern} \mid \text{normal variation})$ measures pattern surprise  
+    $w_m$ and $w_p$ are weights that balance magnitude versus pattern sensitivity
 
 ### Worked Example: Calibrating Equivalent Surprise
 
