@@ -26,6 +26,7 @@ bing_site_verification: # Add your Bing verification code
 plugins:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-responsive-image
 
 # SEO
 keywords:
@@ -38,6 +39,23 @@ keywords:
 sass:
   sass_dir: _sass
   style: compressed
+
+# Responsive Images
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - width: 400
+      quality: 85
+    - width: 800
+      quality: 85
+    - width: 1200
+      quality: 90
+  default_quality: 85
+  output_path_format: assets/images/resized/%{filename}-%{width}w.%{extension}
+  save_to_source: false
+  strip: true
+  extra_images:
+    - assets/images/historical-cost-of-computer-memory-and-storage.png
 
 # Collections
 collections:

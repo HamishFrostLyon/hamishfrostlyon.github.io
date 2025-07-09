@@ -8,15 +8,15 @@ excerpt: "Traditional control charts use arbitrary rules that miss critical proc
 
 ## TL;DR
 
-Mathematical surprise offers a revolutionary approach to process monitoring that combines magnitude and pattern detection into a single, principled metric. Instead of juggling multiple arbitrary rules developed in the 1920s and 1950s, organizations can monitor one number that captures both sudden failures and gradual drift through equivalent mathematical pathways.
+Mathematical surprise offers a revolutionary approach to process monitoring that combines magnitude and pattern detection into a single, principled metric. Instead of juggling multiple heuristics developed in the 1920s and 1950s under severe compute constraints, organizations can monitor one number that captures both sudden failures and gradual drift through equivalent mathematical pathways.
 
-Traditional control charts use separate, unrelated rules like "1 point beyond 3 standard deviations" or "8 consecutive points above centerline." These rules don't indicate relative urgency—is a massive outlier more critical than a sustained pattern of small deviations? There's no mathematical basis for comparison.
+Traditional control charts use separate, unrelated heuristics like "1 point beyond 3 standard deviations" or "8 consecutive points above centerline." These heuristics don't indicate relative urgency—is a massive outlier more critical than a sustained pattern of small deviations? There's no mathematical basis for comparison.
 
 Unified surprise theory treats both magnitude and pattern as different expressions of the same underlying phenomenon: unexpected information. A single 4-sigma outlier might generate 20 bits of surprise, equivalent to eight consecutive 0.5-sigma deviations in the same direction. Both scenarios cross the same alert threshold but through different mathematical pathways, allowing operators to respond appropriately to each situation.
 
 This approach adapts automatically to changing conditions, detects subtle shifts that traditional charts miss, and replaces arbitrary rule-based thinking with principled mathematical frameworks. Organizations implementing surprise-based monitoring report catching problems 40-60% earlier, when corrective actions are less expensive and more effective.
 
-Beyond process control, this represents a fundamental shift from rule-following to information processing—a change that prepares organizations for a future where competitive advantage belongs to those who can recognize meaningful patterns in ambiguous data and adapt faster than competitors still following outdated rules.
+Beyond process control, this represents a fundamental shift from heuristic-following to information processing—a change that prepares organizations for a future where competitive advantage belongs to those who can recognize meaningful patterns in ambiguous data and adapt faster than competitors still relying on approximations from an era of limited compute.
 
 ## The Problem We've Inherited
 
@@ -49,27 +49,31 @@ As control charts spread through American industry, practitioners discovered tha
 
 These rules became gospel in manufacturing. Quality textbooks presented them as scientific fact. ISO standards codified them. Generations of engineers learned to watch for "runs" and "trends" as distinct phenomena requiring separate attention.
 
-### The Uncomfortable Truth
+### The Compute Constraints
 
-Here's what nobody wants to acknowledge: these rules are completely arbitrary. Western Electric derived them through trial and error, not mathematical proof. They represent practical shortcuts rather than fundamental principles. Most troubling, they provide no framework for comparing the severity of different violations. Is Rule 1 more urgent than Rule 2? Should a four-sigma outlier trigger the same response as fourteen alternating points?
+Here's what we need to acknowledge: these heuristics emerged from severe compute limitations, not mathematical principles. Western Electric derived them through trial and error constrained by the calculating technology of their era. They represent practical approximations developed when computing exact probabilities was impossible, not fundamental principles. Most troubling, they provide no framework for comparing the severity of different violations. Is Rule 1 more urgent than Rule 2? Should a four-sigma outlier trigger the same response as fourteen alternating points?
 
-Despite advances in computing power and statistical theory, most industrial process monitoring still relies on Shewhart's 1924 framework supplemented by Western Electric's 1956 rules. Organizations have automated the calculations and prettified the displays, but the underlying logic remains unchanged: watch for patterns that smart people once noticed and codified into rules.
+{% responsive_image path: assets/images/historical-cost-of-computer-memory-and-storage.png alt: "Historical price of computer memory and storage showing exponential decline from $100 trillion per terabyte in 1956 to around $1,000 per terabyte in 2023" %}
 
-This arbitrary rule-based approach has metastasized beyond manufacturing. Financial markets use circuit breakers triggered at predetermined percentage drops. Healthcare monitors use alarm thresholds set by committee consensus. Software systems flag anomalies based on configurable multiples of historical variance. We've built a world of watchers watching for patterns that earlier watchers thought looked important.
+<p class="image-caption">The exponential decline in compute costs since the 1950s. Memory that cost $100 trillion per terabyte in 1956 now costs around $1,000 per terabyte—a nine-orders-of-magnitude improvement that renders compute-constrained heuristics obsolete.</p>
 
-Meanwhile, information theory has given us tools to measure surprise mathematically. Rather than relying on arbitrary thresholds, we can calculate exactly how unexpected any observation is given its context. Instead of separate rules for different patterns, we can unify all forms of process change under a single theoretical framework.
+Despite advances in compute power and statistical theory, most industrial process monitoring still relies on Shewhart's 1924 framework supplemented by Western Electric's 1956 heuristics. Organizations have automated the calculations and prettified the displays, but the underlying logic remains unchanged: watch for patterns that earlier engineers noticed and codified when compute resources couldn't support more sophisticated approaches.
 
-The question isn't whether we can do better than 1950s-era rules. It's why we haven't already.
+This heuristic-based approach has metastasized beyond manufacturing. Financial markets use circuit breakers triggered at predetermined percentage drops. Healthcare monitors use alarm thresholds set by committee consensus. Software systems flag anomalies based on configurable multiples of historical variance. We've built a world of watchers watching for patterns that earlier watchers identified under compute constraints that no longer exist.
+
+Meanwhile, information theory has given us tools to measure surprise mathematically. Rather than relying on approximations from an era of limited compute, we can calculate exactly how unexpected any observation is given its context. Instead of separate heuristics for different patterns, we can unify all forms of process change under a single theoretical framework.
+
+The question isn't whether we can do better than 1950s-era heuristics. It's why we haven't already moved beyond the compute constraints that originally necessitated them.
 
 ## Mathematical Core: The Mathematics of Surprise
 
-### Beyond Arbitrary Thresholds
+### Beyond Compute Approximations
 
-Traditional control charts ask a simple question: "Is this measurement unusual?" They answer by comparing new points to historical limits drawn at arbitrary distances from the process center. Three standard deviations? Someone thought that seemed reasonable. Eight consecutive points above centerline? Experience suggested it was worth investigating.
+Traditional control charts ask a simple question: "Is this measurement unusual?" They answer by comparing new points to historical limits drawn at distances chosen for computational convenience. Three standard deviations? It provided reasonable balance with slide-rule calculations. Eight consecutive points above centerline? Experience suggested it was worth investigating when exact probability calculations were impossible.
 
 Mathematical surprise asks a fundamentally different question: "How much information does this observation contain?" Information, in Claude Shannon's technical sense, is the negative logarithm of probability. Common events carry little information because they tell us nothing we didn't already expect. Rare events carry high information content because they force us to update our understanding of the world.
 
-This shift from arbitrary thresholds to information content transforms process monitoring from rule-following to mathematical reasoning. Instead of watching for predetermined patterns, we measure the actual surprise each observation generates and respond proportionally to its information content.
+This shift from compute approximations to information content transforms process monitoring from heuristic-following to mathematical reasoning. Instead of watching for predetermined patterns developed under compute constraints, we measure the actual surprise each observation generates and respond proportionally to its information content.
 
 ### The Two Faces of Process Change
 
@@ -79,7 +83,7 @@ Process changes express themselves through two distinct mechanisms:
 
 **Pattern Changes**: Gradual drifts that manifest as sustained small deviations in consistent directions. Tool wear might cause dimensions to creep upward by 0.02 units per hour over twelve hours. No individual measurement seems alarming, but the pattern reveals systematic change.
 
-Traditional control charts treat these as separate phenomena requiring different rules. Western Electric Rule 1 catches magnitude changes, while Rule 2 catches pattern changes. But information theory reveals them as different expressions of the same underlying reality: both represent departures from expected randomness.
+Traditional control charts treat these as separate phenomena requiring different heuristics. Western Electric Rule 1 catches magnitude changes, while Rule 2 catches pattern changes. But information theory reveals them as different expressions of the same underlying reality: both represent departures from expected randomness.
 
 ### The Unified Framework
 
@@ -135,21 +139,21 @@ The computational requirements are surprisingly modest. For each new observation
 
 The key insight is that surprise calculation adapts automatically to changing process conditions. Unlike fixed control limits, surprise thresholds respond to process shifts by updating probability estimates in real-time.
 
-## Cultural Analysis: The Arbitrary Rule Society
+## Cultural Analysis: The Compute Approximation Society
 
-### The Comfort of False Precision
+### The Comfort of Historical Approximations
 
-Western Electric's rules persist not because they're mathematically sound, but because they provide psychological comfort. Rules feel scientific. They suggest someone has figured out the right answer and codified it for our use. When a process triggers Rule 2 (nine consecutive points above centerline), operators don't need to think—they just follow the prescribed response.
+Western Electric's heuristics persist not because they're mathematically sound, but because they provide psychological comfort. Heuristics feel scientific. They suggest earlier engineers figured out practical solutions and codified them for our use. When a process triggers Rule 2 (nine consecutive points above centerline), operators don't need to think—they just follow the prescribed response developed under compute constraints that no longer exist.
 
-This preference for rules over reasoning permeates modern organizational life. We create policies for every conceivable situation rather than developing judgment. We establish procedures that specify exact steps rather than principles that guide decision-making. We build systems that flag predetermined patterns rather than measuring actual information content.
+This preference for inherited heuristics over reasoning permeates modern organizational life. We create policies for every conceivable situation rather than developing judgment. We establish procedures that specify exact steps rather than principles that guide decision-making. We build systems that flag predetermined patterns rather than measuring actual information content.
 
 The result is brittle organizations that function well within expected parameters but fail catastrophically when confronted with novel situations. When Boeing's MCAS system encountered conditions not anticipated by its rules-based programming, it couldn't adapt. When financial institutions followed risk management rules calibrated for normal market conditions, they couldn't respond appropriately to 2008's unprecedented circumstances.
 
-Surprise-based thinking represents a fundamental shift from rule-following to information processing. Instead of asking "Which rule applies?" we ask "How much information does this contain?" Instead of predetermined responses, we calibrate reactions to actual surprise content. This approach builds adaptive capacity rather than rigid compliance.
+Surprise-based thinking represents a fundamental shift from heuristic-following to information processing. Instead of asking "Which heuristic applies?" we ask "How much information does this contain?" Instead of predetermined responses developed under compute constraints, we calibrate reactions to actual surprise content. This approach builds adaptive capacity rather than rigid adherence to approximations from an earlier era.
 
 ### The Measurement Paradox
 
-Our current monitoring systems create what management theorist Chris Argyris called "skilled incompetence"—the ability to produce intended results that are counterproductive. We've become remarkably skilled at detecting rule violations while losing the ability to recognize when the rules themselves have become obsolete.
+Our current monitoring systems create what management theorist Chris Argyris called "skilled incompetence"—the ability to produce intended results that are counterproductive. We've become remarkably skilled at detecting heuristic violations while losing the ability to recognize when the compute constraints that necessitated these heuristics have become obsolete.
 
 Consider how this plays out in corporate performance management. Organizations establish key performance indicators with target ranges and alert thresholds. Managers monitor dashboards that light up red when metrics exceed predetermined bounds. But these systems rarely ask whether the underlying metrics still matter or whether the thresholds reflect current reality.
 
@@ -157,21 +161,21 @@ Sales teams optimize for revenue numbers that trigger bonus thresholds, potentia
 
 Surprise-based measurement shifts focus from hitting targets to generating insights. Instead of celebrating metric achievement, organizations ask what information their performance data contains. Instead of managing to predetermined thresholds, they adapt their understanding based on observed patterns.
 
-This cultural change is profound. It requires organizations to embrace uncertainty rather than pretending precision where none exists. It demands intellectual humility—the recognition that our current understanding might be incomplete or obsolete. Most challenging, it requires leaders to make decisions based on information content rather than rule compliance.
+This cultural change is profound. It requires organizations to embrace uncertainty rather than pretending precision where none exists. It demands intellectual humility—the recognition that heuristics developed under compute constraints might no longer be optimal. Most challenging, it requires leaders to make decisions based on information content rather than compliance with approximations from an earlier technological era.
 
 ### The Future of Human-Machine Collaboration
 
 As artificial intelligence becomes more sophisticated, the tension between rule-based and information-based approaches becomes critical. Current AI systems excel at pattern recognition within predetermined parameters but struggle with novel situations that require updating their fundamental assumptions.
 
-Rule-based AI systems fail gracefully—they follow their programming until conditions exceed their design parameters, then fail predictably. Information-based systems fail more adaptively—they recognize when their current models no longer explain observed data and update their understanding accordingly.
+Heuristic-based AI systems fail gracefully—they follow their programming until conditions exceed their design parameters, then fail predictably. Information-based systems fail more adaptively—they recognize when their current models no longer explain observed data and update their understanding accordingly.
 
 This difference becomes crucial as we integrate AI into complex decision-making processes. An AI system monitoring industrial processes using traditional control chart logic will reliably detect predetermined patterns while missing novel forms of process drift. An AI system measuring surprise content will flag unexpected patterns even if they don't match historical templates.
 
-The implications extend beyond manufacturing into healthcare, finance, transportation, and every domain where AI systems monitor complex processes. Do we want AI that follows predetermined rules perfectly, or AI that recognizes when the rules need updating?
+The implications extend beyond manufacturing into healthcare, finance, transportation, and every domain where AI systems monitor complex processes. Do we want AI that follows predetermined heuristics perfectly, or AI that recognizes when compute advances make better approaches possible?
 
-Surprise-based thinking prepares organizations for this transition. By learning to measure information content rather than rule compliance, human operators develop the judgment needed to work effectively with adaptive AI systems. By embracing uncertainty rather than false precision, organizations build the cultural capacity to thrive in environments where change is the only constant.
+Surprise-based thinking prepares organizations for this transition. By learning to measure information content rather than heuristic compliance, human operators develop the judgment needed to work effectively with adaptive AI systems. By embracing compute advances rather than inherited approximations, organizations build the cultural capacity to thrive in environments where change is the only constant.
 
-## Broader Implications: Beyond Arbitrary Rules
+## Broader Implications: Beyond Compute Constraints
 
 The shift from rule-based to information-based monitoring represents more than a technical improvement—it's a fundamental change in how we think about measurement, control, and organizational learning.
 
@@ -179,7 +183,7 @@ The shift from rule-based to information-based monitoring represents more than a
 
 Traditional control charts embody industrial-age thinking: standardized processes monitored by standardized rules producing standardized outcomes. This approach worked when markets were stable, competition was predictable, and customer demands were uniform.
 
-Modern organizations operate in environments where change is accelerating, customer expectations are fragmenting, and competitive advantages are ephemeral. Rule-based systems that worked for decades can become obsolete overnight. The organizations that thrive will be those that can detect meaningful changes in ambiguous data and adapt faster than competitors still following outdated playbooks.
+Modern organizations operate in environments where change is accelerating, customer expectations are fragmenting, and competitive advantages are ephemeral. Heuristic systems that worked for decades can become obsolete overnight. The organizations that thrive will be those that can detect meaningful changes in ambiguous data and adapt faster than competitors still following approximations developed under obsolete compute constraints.
 
 Information-based monitoring enables this adaptive capacity. By measuring actual surprise content rather than conformance to predetermined patterns, organizations develop what complexity theorists call "requisite variety"—the ability to match environmental complexity with internal complexity. When the environment changes, surprise-based systems automatically adjust their sensitivity and detection capabilities.
 
@@ -195,20 +199,20 @@ This democratization matters because it enables smaller organizations to compete
 
 Perhaps most importantly, surprise-based monitoring transforms organizations from rule-followers into learning systems. Traditional control charts encourage reactive thinking: wait for rule violations, then investigate and correct. Surprise-based systems encourage proactive learning: continuously assess what new information the environment is providing and adapt accordingly.
 
-This shift changes organizational culture at the deepest level. Instead of punishing rule violations, organizations celebrate information generation. Instead of standardizing responses, they cultivate judgment. Instead of optimizing for compliance, they optimize for adaptation.
+This shift changes organizational culture at the deepest level. Instead of punishing heuristic violations, organizations celebrate information generation. Instead of standardizing responses based on compute approximations, they cultivate judgment. Instead of optimizing for compliance with inherited constraints, they optimize for adaptation.
 
-The competitive implications are staggering. In industries where process improvement drives competitive advantage—manufacturing, healthcare, financial services, logistics—organizations that master information-based thinking will pull steadily ahead of those trapped in rule-based systems.
+The competitive implications are staggering. In industries where process improvement drives competitive advantage—manufacturing, healthcare, financial services, logistics—organizations that master information-based thinking will pull steadily ahead of those trapped in heuristic systems developed under compute constraints that no longer exist.
 
 ### The Choice Before Us
 
 We stand at an inflection point. Computing power has made information-based monitoring technically feasible. Accelerating change has made it strategically necessary. The question is whether organizations will embrace the intellectual challenge of moving beyond arbitrary rules toward principled mathematical frameworks.
 
-The comfort of rules is seductive. They provide certainty in uncertain environments, clear guidance in ambiguous situations, and shared understanding across organizational levels. But rules that don't adapt become constraints that prevent organizations from responding to changing conditions.
+The comfort of inherited heuristics is seductive. They provide certainty in uncertain environments, clear guidance in ambiguous situations, and shared understanding across organizational levels. But heuristics developed under compute constraints become obstacles that prevent organizations from leveraging modern analytical capabilities.
 
 Mathematical surprise offers a path forward: principled, adaptive, and mathematically sound. It requires organizations to embrace uncertainty rather than pretending precision where none exists. It demands intellectual humility and continuous learning. But it also provides competitive advantage that compounds over time.
 
 The whispers of change are there in the data, waiting to be heard. Traditional control charts are calibrated for screams, leaving us deaf to the subtle signals that could save millions in waste, prevent quality failures, and unlock new sources of competitive advantage.
 
-The question isn't whether we can do better than 1950s-era control charts. It's whether we're willing to abandon the comfort of arbitrary rules for the power of information-based decision-making. The organizations that make this transition will shape the future. Those that don't will be shaped by it.
+The question isn't whether we can do better than 1950s-era control charts. It's whether we're willing to abandon the comfort of compute approximations for the power of information-based decision-making enabled by modern computing. The organizations that make this transition will shape the future. Those that don't will be shaped by it.
 
-Mathematical surprise transforms process monitoring from rule-following to mathematical reasoning, from reactive control to proactive learning, from brittle compliance to adaptive capacity. In a world where change is the only constant, that transformation isn't just an improvement—it's a requirement for survival.
+Mathematical surprise transforms process monitoring from heuristic-following to mathematical reasoning, from reactive control to proactive learning, from brittle compliance with inherited constraints to adaptive capacity enabled by modern compute. In a world where change is the only constant, that transformation isn't just an improvement—it's a requirement for survival.

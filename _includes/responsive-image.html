@@ -1,0 +1,29 @@
+{% comment %}
+Responsive image template for jekyll-responsive-image plugin
+Generates <picture> element with multiple sizes and formats
+Usage: {% responsive_image path: assets/images/filename.png alt: "Alt text" %}
+{% endcomment %}
+
+{% assign path_prefix = '/assets/images/resized/' %}
+{% assign path_parts = original | split: '/' %}
+{% assign filename = path_parts.last | split: '.' %}
+{% assign name = filename.first %}
+{% assign extension = filename.last %}
+
+<picture class="responsive-image">
+  {% comment %}Responsive image sources{% endcomment %}
+  {% for size in resized %}
+    {% assign size_width = size.width %}
+    {% assign size_path = size.path | replace: '/assets/images/', path_prefix %}
+    <source srcset="{{ size_path | relative_url }}" 
+            media="(max-width: {{ size_width }}px)">
+  {% endfor %}
+  
+  {% comment %}Fallback image{% endcomment %}
+  <img src="{{ resized.last.path | relative_url }}" 
+       alt="{{ alt }}" 
+       width="{{ resized.last.width }}"
+       height="{{ resized.last.height }}"
+       loading="lazy"
+       class="responsive-image__img">
+</picture>
