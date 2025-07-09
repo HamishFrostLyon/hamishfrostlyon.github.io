@@ -13,33 +13,31 @@
 }
 
 header {
-    @include flex-between;
-    flex-wrap: nowrap;
+    display: flex;
     align-items: center;
-    gap: $spacing-unit;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 1.5rem 0 2rem 0;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 2rem;
-    width: 100%;
     
     @include respond-to('tablet') {
         padding: 2rem 0 2.5rem 0;
         margin-bottom: 2.5rem;
+        gap: 1.5rem;
     }
     
     @include respond-to('desktop') {
         padding: 2.5rem 0 3rem 0;
         margin-bottom: 3rem;
+        gap: 2rem;
     }
-}
-
-.header-left {
-    flex-shrink: 0;
     
     h1 {
         font-size: 1.1rem;
         font-weight: 500;
         margin: 0;
+        flex-shrink: 0;
         
         a {
             color: var(--text-color);
@@ -48,22 +46,9 @@ header {
     }
 }
 
-.header-right {
-    @include flex-start;
-    align-items: center;
-    gap: 1rem;
-    
-    @include respond-to('tablet') {
-        gap: 1.5rem;
-    }
-    
-    @include respond-to('desktop') {
-        gap: 2rem;
-    }
-}
-
 nav {
-    @include flex-start;
+    display: flex;
+    align-items: center;
     gap: $spacing-unit;
     
     a {
@@ -74,12 +59,6 @@ nav {
         
         &:hover {
             opacity: 0.7;
-            text-decoration: none !important;
-            color: var(--text-color) !important;
-        }
-        
-        &:visited {
-            color: var(--text-color) !important;
         }
         
         &.active {
@@ -89,9 +68,9 @@ nav {
 }
 
 .header-actions {
-    @include flex-start;
+    display: flex;
+    align-items: center;
     gap: 0.75rem;
-    position: relative;
     flex-shrink: 0;
 }
 
