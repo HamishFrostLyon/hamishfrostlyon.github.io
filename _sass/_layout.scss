@@ -34,8 +34,8 @@ header {
     }
     
     h1 {
-        font-size: 1.1rem;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 400;
         margin: 0;
         flex-shrink: 0;
         
@@ -58,12 +58,13 @@ header {
 nav {
     display: flex;
     align-items: center;
-    gap: $spacing-unit;
+    gap: 1rem;
     
     a {
         color: var(--text-color) !important;
         text-decoration: none !important;
-        font-size: 0.95rem;
+        font-size: 1rem;
+        font-weight: 400;
         @include transition(opacity);
         
         &:hover {
@@ -71,7 +72,8 @@ nav {
         }
         
         &.active {
-            font-weight: 600;
+            font-weight: 400;
+            text-decoration: underline !important;
         }
     }
 }
@@ -79,7 +81,7 @@ nav {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     flex-shrink: 0;
 }
 
