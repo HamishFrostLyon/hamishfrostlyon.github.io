@@ -394,27 +394,3 @@ p a, li a, .post-title a {
     }
 }
 
-// Responsive images
-.responsive-image {
-    display: block;
-    margin: 1.5rem 0;
-    max-width: 100%;
-    height: auto;
-    
-    &__img {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-}
-
-// Image captions
-.image-caption {
-    font-size: $font-size-small;
-    color: var(--text-secondary);
-    text-align: center;
-    font-style: italic;
-    margin: 0.5rem 0 1.5rem 0;
-    line-height: 1.4;
-}
