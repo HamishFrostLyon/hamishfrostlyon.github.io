@@ -12,6 +12,7 @@
   }
 }
 
+/* Header section - clean rebuild */
 .site-header {
   display: flex;
   align-items: center;
@@ -34,58 +35,19 @@
   }
 }
 
-// Site title styling - higher specificity than base h1
 .site-title {
+  margin: 0;
   font-size: 1rem;
   font-weight: 400;
-  line-height: $line-height-heading;
-  letter-spacing: 0.02em;
-  margin: 0;
-  padding: 0;
   flex-shrink: 0;
 
   a {
     color: var(--text-color);
     text-decoration: none;
-    text-underline-offset: 0;
-    text-decoration-thickness: initial;
-    display: inline;
-    vertical-align: baseline;
-    
+
     &:hover {
       opacity: 0.7;
     }
-
-    &:visited {
-      color: var(--text-color);
-    }
-  }
-}
-
-// Navigation link styling - consistent with site title
-.nav-link {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: $line-height-heading;
-  letter-spacing: 0.02em;
-  color: var(--text-color);
-  text-decoration: none;
-  text-underline-offset: 0;
-  text-decoration-thickness: initial;
-  display: inline;
-  vertical-align: baseline;
-  @include transition(opacity);
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &:visited {
-    color: var(--text-color);
-  }
-
-  &.active {
-    text-decoration: underline;
   }
 }
 
@@ -93,6 +55,22 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.active {
+    text-decoration: underline;
+  }
 }
 
 .header-actions {
