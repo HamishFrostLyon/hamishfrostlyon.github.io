@@ -65,6 +65,7 @@ nav {
         text-decoration: none !important;
         font-size: 1rem;
         font-weight: 400;
+        line-height: $line-height-heading;
         @include transition(opacity);
         
         &:hover {
