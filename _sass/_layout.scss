@@ -12,45 +12,37 @@
   }
 }
 
-/* Header - Nike-style single-line layout */
+/* Header - Simple flexbox layout */
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   padding: 1.5rem 0 2rem 0;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
-  min-height: 60px; /* Ensure consistent height */
 
   @include respond-to("tablet") {
     padding: 2rem 0 2.5rem 0;
     margin-bottom: 2.5rem;
+    gap: 1.5rem;
   }
 
   @include respond-to("desktop") {
     padding: 2.5rem 0 3rem 0;
     margin-bottom: 3rem;
+    gap: 2rem;
   }
-}
-
-/* Force all direct children to stay on one line */
-.site-header > * {
-  flex-shrink: 0;
-  white-space: nowrap;
 }
 
 .site-title {
   margin: 0;
-  padding: 0;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.2;
 
   a {
     color: var(--text-color);
     text-decoration: none;
-    display: inline-block;
-    line-height: 1.2;
 
     &:hover {
       opacity: 0.7;
@@ -61,7 +53,7 @@
 nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .nav-link {
@@ -69,9 +61,6 @@ nav {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.2;
-  display: inline-block;
-  padding: 0.5rem 0;
   @include transition(opacity);
 
   &:hover {
@@ -80,7 +69,6 @@ nav {
 
   &.active {
     text-decoration: underline;
-    text-underline-offset: 0.2rem;
   }
 }
 
