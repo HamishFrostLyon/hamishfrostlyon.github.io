@@ -12,7 +12,7 @@
   }
 }
 
-header {
+.site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,43 +32,62 @@ header {
     margin-bottom: 3rem;
     gap: 2rem;
   }
+}
 
-  // Reset both h1 and nav a to identical baseline styles
-  h1,
-  nav a {
-    font-family: inherit;
-    font-size: 1rem !important;  // Override base.scss h1 styles
-    font-weight: 400 !important;
-    line-height: $line-height-heading !important;
-    letter-spacing: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0;
-    background: transparent;
+// Site title styling - higher specificity than base h1
+.site-title {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: $line-height-heading;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  display: inline;
+  vertical-align: baseline;
+
+  a {
     color: var(--text-color);
     text-decoration: none;
+    text-underline-offset: 0;
+    text-decoration-thickness: initial;
     display: inline;
     vertical-align: baseline;
-    flex-shrink: 0;
-  }
-
-  h1 a {
-    color: inherit;
-    text-decoration: inherit;
-    font-size: inherit !important;  // Ensure nested anchor inherits size
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    margin: inherit !important;
-    padding: inherit !important;
-
+    
     &:hover {
       opacity: 0.7;
     }
 
     &:visited {
-      color: inherit;
+      color: var(--text-color);
     }
+  }
+}
+
+// Navigation link styling - consistent with site title
+.nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: $line-height-heading;
+  letter-spacing: 0.02em;
+  color: var(--text-color);
+  text-decoration: none;
+  text-underline-offset: 0;
+  text-decoration-thickness: initial;
+  display: inline;
+  vertical-align: baseline;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:visited {
+    color: var(--text-color);
+  }
+
+  &.active {
+    text-decoration: underline;
   }
 }
 
@@ -76,18 +95,6 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  a {
-    @include transition(opacity);
-
-    &:hover {
-      opacity: 0.7;
-    }
-
-    &.active {
-      text-decoration: underline;
-    }
-  }
 }
 
 .header-actions {
