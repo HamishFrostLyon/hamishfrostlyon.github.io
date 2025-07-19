@@ -18,16 +18,11 @@ header {
   border-bottom: 1px solid var(--border-color);
   margin-bottom: $spacing-xl;
   
-  /* Mobile-first flexbox layout */
+  /* Horizontal layout on all screen sizes */
   display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-  
-  @include respond-to("mobile") {
-    flex-direction: row;
-    align-items: center;
-    gap: $spacing-lg;
-  }
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-lg;
 }
 
 .header-heading {
