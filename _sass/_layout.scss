@@ -14,13 +14,24 @@
 
 /* Simplified Header - Only 2 Styles */
 header {
-  padding: 2rem 0;
+  padding: $spacing-lg 0;
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-xl;
+  
+  /* Mobile-first flexbox layout */
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  @include respond-to("mobile") {
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-lg;
+  }
 }
 
 .header-heading {
-  margin: 0 0 1rem 0;
+  margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-color);
@@ -41,11 +52,11 @@ header {
 }
 
 .header-text {
-  font-size: 1rem;
+  font-size: $font-size-base;
   font-weight: 400;
   color: var(--text-color);
   text-decoration: none;
-  margin-right: 1.5rem;
+  margin-right: $spacing-lg;
   
   &:hover {
     opacity: 0.8;
