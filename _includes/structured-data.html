@@ -1,147 +1,147 @@
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    {% if page.layout == "post" %}
-    "@type": "BlogPosting",
-    "headline": {{ page.title | jsonify }},
-    "description": {{ page.excerpt | strip_html | truncate: 160 | jsonify }},
-    "keywords": {{ page.tags | join: ', ' | jsonify }},
-    "wordCount": {{ page.content | strip_html | number_of_words }},
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    {% if page.last_modified_at %}
-    "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-    {% else %}
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
-    {% endif %}
-    "inLanguage": "en-AU",
-    "author": {
-        "@type": "Person",
-        "name": {{ site.author.name | jsonify }},
-        "url": "{{ '/about' | absolute_url }}",
-        "nationality": "Australian",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Perth",
-            "addressRegion": "WA",
-            "addressCountry": "AU"
-        },
-        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
-    },
-    "publisher": {
-        "@type": "Person",
-        "name": {{ site.author.name | jsonify }},
-        "url": "{{ site.url }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ site.data.seo.logo | absolute_url }}"
-        }
-    },
-    "image": {
-        "@type": "ImageObject",
-        "url": "{{ page.image | default: site.og_image | absolute_url }}",
-        "width": 1200,
-        "height": 630
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ page.url | absolute_url }}"
-    },
-    "articleBody": {{ page.content | strip_html | jsonify }}
-    {% elsif page.url == "/about/" %}
-    "@type": "AboutPage",
-    "name": "About {{ site.author.name }}",
-    "description": {{ page.excerpt | default: site.description | strip_html | jsonify }},
-    "url": "{{ page.url | absolute_url }}",
-    "inLanguage": "en-AU",
-    "mainEntity": {
-        "@type": "Person",
-        "name": {{ site.author.name | jsonify }},
-        "jobTitle": "Management Consultant",
-        "nationality": "Australian",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Perth",
-            "addressRegion": "WA",
-            "addressCountry": "AU"
-        },
-        "worksFor": {
-            "@type": "Organisation",
-            "name": "Independent Consultant"
-        },
-        "description": "Management consultant specialising in operations strategy and digital transformation",
-        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
-        "knowsAbout": [
-            "Management Consulting",
-            "Digital Transformation",
-            "Operations Strategy",
-            "Business Strategy",
-            "Change Management"
-        ]
-    }
-    {% else %}
-    "@type": "WebSite",
-    "name": {{ site.title | jsonify }},
-    "description": {{ site.description | jsonify }},
-    "url": "{{ site.url }}",
-    "inLanguage": "en-AU",
-    "publisher": {
-        "@type": "Person",
-        "name": {{ site.author.name | jsonify }},
-        "nationality": "Australian",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Perth",
-            "addressRegion": "WA",
-            "addressCountry": "AU"
-        },
-        "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
-    },
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ site.url }}/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-    }
-    {% endif %}
-}
+  {
+      "@context": "https://schema.org",
+      {% if page.layout == "post" %}
+      "@type": "BlogPosting",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.excerpt | strip_html | truncate: 160 | jsonify }},
+      "keywords": {{ page.tags | join: ', ' | jsonify }},
+      "wordCount": {{ page.content | strip_html | number_of_words }},
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      {% if page.last_modified_at %}
+      "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+      {% else %}
+      "dateModified": "{{ page.date | date_to_xmlschema }}",
+      {% endif %}
+      "inLanguage": "en-AU",
+      "author": {
+          "@type": "Person",
+          "name": {{ site.author.name | jsonify }},
+          "url": "{{ '/about' | absolute_url }}",
+          "nationality": "Australian",
+          "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Perth",
+              "addressRegion": "WA",
+              "addressCountry": "AU"
+          },
+          "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
+      },
+      "publisher": {
+          "@type": "Person",
+          "name": {{ site.author.name | jsonify }},
+          "url": "{{ site.url }}",
+          "logo": {
+              "@type": "ImageObject",
+              "url": "{{ site.data.seo.logo | absolute_url }}"
+          }
+      },
+      "image": {
+          "@type": "ImageObject",
+          "url": "{{ page.image | default: site.og_image | absolute_url }}",
+          "width": 1200,
+          "height": 630
+      },
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ page.url | absolute_url }}"
+      },
+      "articleBody": {{ page.content | strip_html | jsonify }}
+      {% elsif page.url == "/about/" %}
+      "@type": "AboutPage",
+      "name": "About {{ site.author.name }}",
+      "description": {{ page.excerpt | default: site.description | strip_html | jsonify }},
+      "url": "{{ page.url | absolute_url }}",
+      "inLanguage": "en-AU",
+      "mainEntity": {
+          "@type": "Person",
+          "name": {{ site.author.name | jsonify }},
+          "jobTitle": "Management Consultant",
+          "nationality": "Australian",
+          "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Perth",
+              "addressRegion": "WA",
+              "addressCountry": "AU"
+          },
+          "worksFor": {
+              "@type": "Organisation",
+              "name": "Independent Consultant"
+          },
+          "description": "Management consultant specialising in operations strategy and digital transformation",
+          "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
+          "knowsAbout": [
+              "Management Consulting",
+              "Digital Transformation",
+              "Operations Strategy",
+              "Business Strategy",
+              "Change Management"
+          ]
+      }
+      {% else %}
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "url": "{{ site.url }}",
+      "inLanguage": "en-AU",
+      "publisher": {
+          "@type": "Person",
+          "name": {{ site.author.name | jsonify }},
+          "nationality": "Australian",
+          "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Perth",
+              "addressRegion": "WA",
+              "addressCountry": "AU"
+          },
+          "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"]
+      },
+      "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ site.url }}/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+      }
+      {% endif %}
+  }
 </script>
 
 <!-- Person structured data -->
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": {{ site.author.name | jsonify }},
-    "alternateName": {{ site.title | jsonify }},
-    "description": "Management consultant specialising in operations strategy and digital transformation",
-    "url": "{{ site.url }}",
-    "image": "{{ '/assets/images/profile.jpg' | absolute_url }}",
-    "nationality": "Australian",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Perth",
-        "addressRegion": "WA",
-        "addressCountry": "AU"
-    },
-    "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
-    "jobTitle": "Management Consultant",
-    "worksFor": {
-        "@type": "Organisation",
-        "name": "Independent Consultant"
-    },
-    "knowsAbout": [
-        "Management Consulting",
-        "Digital Transformation",
-        "Operations Strategy",
-        "Business Strategy",
-        "Change Management",
-        "Leadership Development",
-        "Organisational Design"
-    ],
-    "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Management Consultant",
-        "occupationalCategory": "13-1111.00",
-        "description": "Analyse and solve complex business problems for clients"
-    }
-}
+  {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": {{ site.author.name | jsonify }},
+      "alternateName": {{ site.title | jsonify }},
+      "description": "Management consultant specialising in operations strategy and digital transformation",
+      "url": "{{ site.url }}",
+      "image": "{{ '/assets/images/profile.jpg' | absolute_url }}",
+      "nationality": "Australian",
+      "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Perth",
+          "addressRegion": "WA",
+          "addressCountry": "AU"
+      },
+      "sameAs": ["https://www.linkedin.com/in/hamishfrostlyon/"],
+      "jobTitle": "Management Consultant",
+      "worksFor": {
+          "@type": "Organisation",
+          "name": "Independent Consultant"
+      },
+      "knowsAbout": [
+          "Management Consulting",
+          "Digital Transformation",
+          "Operations Strategy",
+          "Business Strategy",
+          "Change Management",
+          "Leadership Development",
+          "Organisational Design"
+      ],
+      "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Management Consultant",
+          "occupationalCategory": "13-1111.00",
+          "description": "Analyse and solve complex business problems for clients"
+      }
+  }
 </script>

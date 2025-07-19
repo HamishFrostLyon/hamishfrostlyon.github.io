@@ -1,7 +1,14 @@
-{% assign lang = page.lang | default: site.lang | default: 'en-AU' %}
-{% assign t = site.data.languages.translations[lang] | default: site.data.languages.translations['en-AU'] %}
+{% assign lang = page.lang | default: site.lang | default: 'en-AU' %} {% assign
+t = site.data.languages.translations[lang] | default:
+site.data.languages.translations['en-AU'] %}
 <div class="skip-links">
-  <a href="#main" class="skip-link">{{ t.skip_to_content | default: "Skip to main content" }}</a>
-  <a href="#search" class="skip-link">{{ t.skip_to_search | default: "Skip to search" }}</a>
-  <a href="#navigation" class="skip-link">{{ t.skip_to_nav | default: "Skip to navigation" }}</a>
+  <a href="#main" class="skip-link"
+    >{{ t.skip_to_content | default: "Skip to main content" }}</a
+  >
+  <a href="#search" class="skip-link"
+    >{{ t.skip_to_search | default: "Skip to search" }}</a
+  >
+  <a href="#navigation" class="skip-link"
+    >{{ t.skip_to_nav | default: "Skip to navigation" }}</a
+  >
 </div>

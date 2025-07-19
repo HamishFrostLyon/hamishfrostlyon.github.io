@@ -1,35 +1,35 @@
 # Language configurations
 en-AU:
-  label: "Australian English"
-  icon: "🇦🇺"
-  dir: "ltr"
-  date_format: "%-d %B %Y"  # Australian format: 8 July 2025
-  short_date_format: "%d/%m/%Y"  # Australian format: 08/07/2025
-  
+  label: 'Australian English'
+  icon: '🇦🇺'
+  dir: 'ltr'
+  date_format: '%-d %B %Y' # Australian format: 8 July 2025
+  short_date_format: '%d/%m/%Y' # Australian format: 08/07/2025
+
 # Common translations - Australian spelling
 translations:
   en-AU:
-    skip_to_content: "Skip to main content"
-    skip_to_search: "Skip to search"
-    skip_to_nav: "Skip to navigation"
-    search_placeholder: "Search posts..."
-    search_label: "Search"
-    no_results: "No results found"
-    read_more: "Read more"
-    download_md: "Download markdown"
-    download_pdf: "Download PDF"
-    dark_mode: "Toggle dark mode"
-    tags: "Tags"
-    tagged: "Tagged"
-    published: "Published"
-    updated: "Updated"
-    min_read: "min read"
-    previous: "Previous"
-    next: "Next"
-    home: "Home"
-    writing: "Writing"
-    about: "About"
-    organisation: "Organisation"  # Not organization
-    optimise: "Optimise"  # Not optimize
-    analyse: "Analyse"  # Not analyze
-    centre: "Centre"  # Not center
+    skip_to_content: 'Skip to main content'
+    skip_to_search: 'Skip to search'
+    skip_to_nav: 'Skip to navigation'
+    search_placeholder: 'Search posts...'
+    search_label: 'Search'
+    no_results: 'No results found'
+    read_more: 'Read more'
+    download_md: 'Download markdown'
+    download_pdf: 'Download PDF'
+    dark_mode: 'Toggle dark mode'
+    tags: 'Tags'
+    tagged: 'Tagged'
+    published: 'Published'
+    updated: 'Updated'
+    min_read: 'min read'
+    previous: 'Previous'
+    next: 'Next'
+    home: 'Home'
+    writing: 'Writing'
+    about: 'About'
+    organisation: 'Organisation' # Not organization
+    optimise: 'Optimise' # Not optimize
+    analyse: 'Analyse' # Not analyze
+    centre: 'Centre' # Not center

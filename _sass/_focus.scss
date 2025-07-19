@@ -50,7 +50,6 @@ select:focus-visible {
   border-bottom-width: 2px;
 }
 
-
 // High contrast mode support
 @media (prefers-contrast: high) {
   *:focus-visible {

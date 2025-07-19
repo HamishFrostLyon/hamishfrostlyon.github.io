@@ -1,62 +1,62 @@
 // Theme toggle visibility
 .sun-icon {
-    display: none;
+  display: none;
 }
 
 .moon-icon {
-    display: block;
+  display: block;
 }
 
 [data-theme="dark"] .sun-icon {
-    display: block;
+  display: block;
 }
 
 [data-theme="dark"] .moon-icon {
-    display: none;
+  display: none;
 }
 
 // Lazy loading styles
 img[data-src] {
-    opacity: 0;
-    transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 img.lazy-loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 // Content spacing
 .post-content {
-    margin-top: 2.5rem;
-    
-    p {
-        margin-bottom: 1.25rem;
-        line-height: 1.8;
+  margin-top: 2.5rem;
+
+  p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  a {
+    color: var(--link-color);
+
+    &:hover {
+      text-decoration: underline;
     }
-    
-    a {
-        color: var(--link-color);
-        
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+  }
 }
 
 article {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border-color);
-    
-    &:last-child {
-        border-bottom: none;
-    }
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .meta {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }
 
 // Skip navigation links
@@ -78,12 +78,21 @@ article {
   text-decoration: none;
   border: 2px solid var(--text-color);
   border-radius: 0 0 4px 0;
-  
+
   &:focus {
     position: absolute;
     left: 0;
     top: 0;
   }
+}
+
+// Link utility classes
+.link-unstyled {
+  @include link-unstyled;
+}
+
+.link-styled {
+  @include link-styled;
 }
 
 // Screen reader only content

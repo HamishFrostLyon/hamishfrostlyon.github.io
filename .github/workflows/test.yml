@@ -2,30 +2,30 @@ name: Test
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-          
+
       - name: Install dependencies
         run: bundle install
-        
+
       - name: Build Jekyll site
         run: bundle exec jekyll build
-        
+
       - name: Test with HTML Proofer
         run: |
           bundle exec htmlproofer ./_site \
@@ -35,7 +35,7 @@ jobs:
             --check-opengraph \
             --report-missing-names \
             --log-level :debug
-            
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         if: failure()

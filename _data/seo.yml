@@ -1,10 +1,10 @@
 # Default SEO settings
-title_separator: " | "
-tagline_separator: " - "
-locale: "en_AU"
-logo: "/assets/images/logo.png"
+title_separator: ' | '
+tagline_separator: ' - '
+locale: 'en_AU'
+logo: '/assets/images/logo.png'
 social:
-  name: "Hamish Lyon"
+  name: 'Hamish Lyon'
   links:
-    - "https://www.linkedin.com/in/hamishfrostlyon/"
-  location: "Perth, Western Australia"
+    - 'https://www.linkedin.com/in/hamishfrostlyon/'
+  location: 'Perth, Western Australia'

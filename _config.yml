@@ -2,7 +2,7 @@ title: Hamish Lyon
 tagline: Management Consultant
 description: Management consultant writing about strategy, operations, and digital transformation
 url: https://hamishfrostlyon.github.io
-baseurl: ""
+baseurl: ''
 
 # Build settings
 markdown: kramdown
@@ -48,10 +48,10 @@ collections:
 # Defaults
 defaults:
   - scope:
-      path: ""
-      type: "posts"
+      path: ''
+      type: 'posts'
     values:
-      layout: "post"
+      layout: 'post'
 
 # Include
 include:

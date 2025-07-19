@@ -1,396 +1,399 @@
 // Search component with WCAG AAA colors
 .search-container {
-    position: relative;
-    flex-shrink: 0;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .search-wrapper {
-    @include flex-start;
-    background: var(--bg-color);
-    border-radius: 20px;
-    padding-right: 0;
-    @include transition(all, 0.3s);
-    position: relative;
-    
-    &.active {
-        @include card-shadow(1);
-        border: 2px solid var(--border-color);
-        padding: 0.25rem 0.5rem 0.25rem 1rem;
-    }
+  @include flex-start;
+  background: var(--bg-color);
+  border-radius: 20px;
+  padding-right: 0;
+  @include transition(all, 0.3s);
+  position: relative;
+
+  &.active {
+    @include card-shadow(1);
+    border: 2px solid var(--border-color);
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+  }
 }
 
 .search-input {
-    width: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-    color: var(--text-color);
-    font-size: $font-size-base;
-    @include transition(width, 0.3s);
-    opacity: 0;
-    
-    .search-wrapper.active & {
-        width: 200px;
-        opacity: 1;
-        margin-right: 0.5rem;
-        
-        @media (max-width: $mobile) {
-            width: 150px;
-        }
+  width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: $font-size-base;
+  @include transition(width, 0.3s);
+  opacity: 0;
+
+  .search-wrapper.active & {
+    width: 200px;
+    opacity: 1;
+    margin-right: 0.5rem;
+
+    @include respond-max("mobile") {
+      width: 150px;
     }
-    
-    &:focus {
-        outline: none;
-    }
-    
-    &::placeholder {
-        color: var(--text-secondary);
-    }
+  }
+
+  // Focus styles handled in _focus.scss
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
 }
 
 // Icon buttons with proper contrast
 .icon-button {
-    @include icon-button;
+  @include icon-button;
 }
 
 // Post list with WCAG AAA colors
 .post-date {
-    color: var(--text-secondary);
-    font-size: $font-size-base;
-    font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+  color: var(--text-secondary);
+  font-size: $font-size-meta;
+  font-family: "SF Mono", Monaco, "Cascadia Mono", monospace;
 }
 
 .post-title a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    
-    &:hover {
-        color: var(--link-color);
-        text-decoration: underline;
-    }
-}
+  @include link-unstyled;
+  color: var(--text-color);
+  font-weight: 500;
 
+  &:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+  }
+}
 
 // Meta information
 .meta {
-    font-size: $font-size-base;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+  font-size: $font-size-base;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }
-
 
 // Search results
 .search-results {
-    background: var(--bg-color);
-    border: 2px solid var(--border-color);
-    
-    a {
-        color: var(--text-color);
-        text-decoration: none;
-    }
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
 }
 
 .search-result-title {
-    color: var(--text-color);
-    font-weight: 600;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .search-result-date {
-    color: var(--text-secondary);
-    font-size: $font-size-small;
+  color: var(--text-secondary);
+  font-size: $font-size-small;
 }
 
 .no-results {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
-// Ensure sufficient tap target size (WCAG AAA)
-a, button, input, select, textarea, [role="button"] {
-    min-height: 44px;
-    min-width: 44px;
+// Tap target sizing for interactive elements
+// Only apply to elements that are actually interactive controls
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+[role="button"],
+.icon-button {
+  min-height: 44px;
+  min-width: 44px;
 }
 
-// Inline links don't need minimum size
-p a, li a, .post-title a {
-    min-height: auto;
-    min-width: auto;
+// Text inputs need height but not width constraint
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea {
+  min-height: 44px;
 }
 
 // Reading time
 .reading-time {
-    @include flex-start;
-    display: inline-flex;
-    gap: 0.25rem;
-    color: var(--text-secondary);
-    font-size: $font-size-small;
+  @include flex-start;
+  display: inline-flex;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+  font-size: $font-size-small;
 }
 
 .reading-time-icon {
-    width: 1em;
-    height: 1em;
+  width: 1em;
+  height: 1em;
 }
 
 .meta-separator {
-    margin: 0 0.5rem;
-    color: var(--text-tertiary);
+  margin: 0 0.5rem;
+  color: var(--text-tertiary);
 }
 
 .last-modified {
-    color: var(--text-secondary);
-    font-size: $font-size-small;
+  color: var(--text-secondary);
+  font-size: $font-size-small;
 }
 
 .post-footer {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
 }
-
 
 // Social links
 .social-links {
-    margin-top: 1rem;
-    
-    a {
-        @include flex-start;
-        display: inline-flex;
-        gap: 0.5rem;
-        color: var(--text-secondary);
-        text-decoration: none;
-        @include transition(color);
-        
-        &:hover {
-            color: var(--link-color);
-            
-            svg {
-                stroke: var(--link-color);
-            }
-        }
-        
-        svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            @include transition(stroke);
-        }
+  margin-top: 1rem;
+
+  a {
+    @include flex-start;
+    display: inline-flex;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: var(--link-color);
+
+      svg {
+        stroke: var(--link-color);
+      }
     }
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      @include transition(stroke);
+    }
+  }
 }
 
 // Post listings
 .post-list {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .post-item {
-    @include flex-start;
-    align-items: baseline;
-    gap: $spacing-sm;
-    margin-bottom: $spacing-sm;
-    
-    @include respond-max('mobile') {
-        @include flex-column;
-        gap: $spacing-xs;
-        align-items: flex-start;
-    }
-    
-    @include respond-to('tablet') {
-        gap: $spacing-md;
-        margin-bottom: $spacing-md;
-    }
+  @include flex-start;
+  align-items: baseline;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+
+  @include respond-max("mobile") {
+    @include flex-column;
+    gap: $spacing-xs;
+    align-items: flex-start;
+  }
+
+  @include respond-to("tablet") {
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
 }
 
 .post-date {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-    min-width: 4rem;
-    font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
-    
-    @media (max-width: $mobile) {
-        font-size: 0.8rem;
-    }
+  font-weight: 500;
+  min-width: 4rem;
+
+  @include respond-max("mobile") {
+    font-size: $font-size-tiny;
+  }
 }
 
 .post-title {
-    flex: 1;
-    
-    a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 400;
-        
-        &:hover {
-            opacity: 0.7;
-        }
+  flex: 1;
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+
+    &:hover {
+      opacity: 0.7;
     }
+  }
 }
 
 // Related posts
 .related-posts {
-    margin-top: clamp(2rem, 8vw, 4rem);
-    padding-top: clamp(1rem, 4vw, 2rem);
-    border-top: 1px solid var(--border-color);
-    
-    h3 {
-        margin-top: 0;
-        margin-bottom: $spacing-lg;
-        font-size: clamp(1rem, 2vw, 1.125rem);
-        font-weight: 600;
-        color: var(--text-color);
-    }
+  margin-top: clamp(2rem, 8vw, 4rem);
+  padding-top: clamp(1rem, 4vw, 2rem);
+  border-top: 1px solid var(--border-color);
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-lg;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 600;
+    color: var(--text-color);
+  }
 }
 
 .related-posts-grid {
-    display: grid;
-    gap: $spacing-md;
-    
-    @include respond-to('tablet') {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: $spacing-lg;
-    }
-    
-    @include respond-to('desktop') {
-        gap: $spacing-xl;
-    }
+  display: grid;
+  gap: $spacing-md;
+
+  @include respond-to("tablet") {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @include respond-to("desktop") {
+    gap: $spacing-xl;
+  }
 }
 
 .related-post {
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background: var(--bg-secondary);
-    transition: border-color 0.2s ease;
-    
-    &:hover {
-        border-color: var(--text-secondary);
-    }
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--text-secondary);
+  }
 }
 
 .related-post-title {
-    margin: 0 0 0.5rem 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1.3;
-    
-    a {
-        color: var(--text-color);
-        text-decoration: none;
-        
-        &:hover {
-            opacity: 0.7;
-        }
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.7;
     }
+  }
 }
 
 .related-post-date {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
-    margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+  margin-bottom: 0.5rem;
 }
 
 .related-post-excerpt {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
 }
 
 // Reading progress indicator
 .reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--border-color);
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--border-color);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .reading-progress-fill {
-    height: 100%;
-    background: var(--text-color);
-    width: 0%;
-    transition: width 0.1s ease;
+  height: 100%;
+  background: var(--text-color);
+  width: 0%;
+  transition: width 0.1s ease;
 }
 
 // Share buttons
 .share-buttons {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .share-heading {
-    margin: 0 0 1rem 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .share-buttons-list {
-    @include flex-start;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+  @include flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .share-button {
-    @include flex-start;
-    display: inline-flex;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background: var(--bg-color);
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    @include transition(all);
-    min-height: 44px; // WCAG touch target
-    
-    &:hover {
-        border-color: var(--text-secondary);
-        color: var(--text-color);
-        background: var(--bg-secondary);
-    }
-    
-    &:focus {
-        outline: 2px solid var(--focus-color);
-        outline-offset: 2px;
-    }
-    
-    svg {
-        flex-shrink: 0;
-    }
+  @include flex-start;
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  @include transition(all);
+  min-height: 44px; // WCAG touch target
+
+  &:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-color);
+    background: var(--bg-secondary);
+  }
+
+  &:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
 }
 
 .share-success {
-    margin-top: 0.75rem;
-    padding: 0.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
 }
 
 // MathJax equation styling
 .MathJax_Display {
-    margin: 1.5rem 0;
-    overflow-x: auto;
+  margin: 1.5rem 0;
+  overflow-x: auto;
 }
 
 .MathJax {
-    // Clean, unboxed styling for inline math
-    &:not(.MathJax_Display) {
-        font-size: 1em;
-    }
+  // Clean, unboxed styling for inline math
+  &:not(.MathJax_Display) {
+    font-size: 1em;
+  }
 }
-

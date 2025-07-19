@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en-AU' }}" 
-      dir="{{ page.dir | default: 'ltr' }}">
-{% include head.html %}
-<body>
-    {% include skip-links.html %}
-    
-    <div class="container">
-        {% include header.html %}
-        
-        <main id="main" role="main" lang="{{ page.content_lang | default: page.lang | default: site.lang | default: 'en-AU' }}">
-            {{ content }}
-        </main>
-        
-        {% include footer.html %}
-    </div>
-    
-    {% include search-data.html %}
-    {% include structured-data.html %}
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/keyboard-nav.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/lazy-load.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/reading-progress.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/share.js' | relative_url }}"></script>
-</body>
+<!doctype html>
+<html
+  lang="{{ page.lang | default: site.lang | default: 'en-AU' }}"
+  dir="{{ page.dir | default: 'ltr' }}"
+>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+
+    <main id="main" role="main">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+  </body>
 </html>
