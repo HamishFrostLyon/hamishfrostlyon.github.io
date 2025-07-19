@@ -24,13 +24,12 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: $spacing-lg;
+  justify-content: space-between;
   flex-wrap: nowrap;
 }
 
 .header-heading {
   margin: 0;
-  margin-right: $spacing-xxl;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-color);
