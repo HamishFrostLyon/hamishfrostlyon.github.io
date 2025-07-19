@@ -1,5 +1,7 @@
 <header>
   <a href="{{ site.baseurl }}/writing" class="header-heading">{{ site.title }}</a>
-  <a href="{{ site.baseurl }}/writing" class="header-text{% if page.url == '/writing/' %} active{% endif %}">writing</a>
-  <a href="{{ site.baseurl }}/about" class="header-text{% if page.url == '/about/' %} active{% endif %}">about</a>
+  <nav class="header-nav">
+    <a href="{{ site.baseurl }}/writing" class="header-text{% if page.url == '/writing/' %} active{% endif %}">writing</a>
+    <a href="{{ site.baseurl }}/about" class="header-text{% if page.url == '/about/' %} active{% endif %}">about</a>
+  </nav>
 </header>

@@ -24,7 +24,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: $spacing-lg;
+  justify-content: space-between;
   flex-wrap: nowrap;
 }
 
@@ -46,6 +46,12 @@ header {
   }
 }
 
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
 .header-text {
   margin: 0;
   font-size: 1.5rem;
@@ -53,7 +59,6 @@ header {
   color: var(--text-color);
   text-decoration: none;
   letter-spacing: -0.02em;
-  margin-right: $spacing-lg;
   
   &:hover {
     opacity: 0.6;
