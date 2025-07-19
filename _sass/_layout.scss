@@ -47,12 +47,12 @@ header {
 }
 
 .header-text {
-  font-size: 0.95rem;
-  font-weight: 500;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.02em;
   margin-right: $spacing-lg;
   
   &:hover {
@@ -65,7 +65,7 @@ header {
   }
   
   &.active {
-    font-weight: 600;
+    opacity: 0.6;
   }
 }
 
