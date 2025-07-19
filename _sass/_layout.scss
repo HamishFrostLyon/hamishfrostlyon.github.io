@@ -17,9 +17,8 @@ header {
   width: 100%;
   max-width: none;
   padding: $spacing-xl $spacing-unit $spacing-lg $spacing-unit;
-  border-bottom: 10px solid red;
+  border-bottom: 2px solid var(--border-color);
   margin-bottom: $spacing-xl;
-  background: lime;
   
   /* Horizontal layout on all screen sizes */
   display: flex;
