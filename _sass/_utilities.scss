@@ -1,19 +1,4 @@
-// Theme toggle visibility
-.sun-icon {
-  display: none;
-}
-
-.moon-icon {
-  display: block;
-}
-
-[data-theme="dark"] .sun-icon {
-  display: block;
-}
-
-[data-theme="dark"] .moon-icon {
-  display: none;
-}
+// Theme toggle removed for header simplification
 
 // Lazy loading styles
 img[data-src] {

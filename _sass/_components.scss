@@ -1,55 +1,4 @@
-// Search component with WCAG AAA colors
-.search-container {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.search-wrapper {
-  @include flex-start;
-  background: var(--bg-color);
-  border-radius: 20px;
-  padding-right: 0;
-  @include transition(all, 0.3s);
-  position: relative;
-
-  &.active {
-    @include card-shadow(1);
-    border: 2px solid var(--border-color);
-    padding: 0.25rem 0.5rem 0.25rem 1rem;
-  }
-}
-
-.search-input {
-  width: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: var(--text-color);
-  font-size: $font-size-base;
-  @include transition(width, 0.3s);
-  opacity: 0;
-
-  .search-wrapper.active & {
-    width: 200px;
-    opacity: 1;
-    margin-right: 0.5rem;
-
-    @include respond-max("mobile") {
-      width: 150px;
-    }
-  }
-
-  // Focus styles handled in _focus.scss
-
-  &::placeholder {
-    color: var(--text-secondary);
-  }
-}
-
-// Icon buttons with proper contrast
-.icon-button {
-  @include icon-button;
-}
+// Simplified components - search and theme toggle removed
 
 // Post list with WCAG AAA colors
 .post-date {
@@ -76,30 +25,7 @@
   margin-bottom: 1rem;
 }
 
-// Search results
-.search-results {
-  background: var(--bg-color);
-  border: 2px solid var(--border-color);
-
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
-}
-
-.search-result-title {
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.search-result-date {
-  color: var(--text-secondary);
-  font-size: $font-size-small;
-}
-
-.no-results {
-  color: var(--text-secondary);
-}
+// Search functionality removed for simplicity
 
 // Tap target sizing for interactive elements
 // Only apply to elements that are actually interactive controls
@@ -110,8 +36,7 @@ input[type="reset"],
 input[type="checkbox"],
 input[type="radio"],
 select,
-[role="button"],
-.icon-button {
+[role="button"] {
   min-height: 44px;
   min-width: 44px;
 }

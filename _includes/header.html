@@ -1,13 +1,9 @@
-<header class="site-header">
-  <h1 class="site-title">
+<header>
+  <h1 class="header-heading">
     <a href="{{ site.baseurl }}/writing">{{ site.title }}, {{ site.tagline }}.</a>
   </h1>
   <nav>
-    <a href="{{ site.baseurl }}/writing" class="nav-link{% if page.url == '/writing/' %} active{% endif %}">writing</a>
-    <a href="{{ site.baseurl }}/about" class="nav-link{% if page.url == '/about/' %} active{% endif %}">about</a>
+    <a href="{{ site.baseurl }}/writing" class="header-text{% if page.url == '/writing/' %} active{% endif %}">writing</a>
+    <a href="{{ site.baseurl }}/about" class="header-text{% if page.url == '/about/' %} active{% endif %}">about</a>
   </nav>
-  <div class="header-actions">
-    {% include search.html %}
-    {% include theme-toggle.html %}
-  </div>
 </header>
