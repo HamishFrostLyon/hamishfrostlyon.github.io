@@ -74,26 +74,7 @@ header {
   }
 }
 
-footer {
-  margin-top: $spacing-xxl * 2;
-  padding-top: $spacing-xl;
-  border-top: 1px solid var(--border-color);
-  font-size: $font-size-small;
-  color: var(--text-secondary);
-  text-align: center;
-
-  p {
-    margin-bottom: 0;
-    line-height: 1.6;
-    max-width: 60ch;
-    margin: 0 auto;
-
-    @include respond-max("mobile") {
-      font-size: $font-size-tiny;
-      line-height: 1.5;
-    }
-  }
-}
+// Footer removed
 
 // User preference scaling
 :root {
