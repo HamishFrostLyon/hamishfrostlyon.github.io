@@ -16,8 +16,8 @@
 header {
   width: 100%;
   max-width: none;
-  padding: $spacing-lg $spacing-unit;
-  border-bottom: 1px solid var(--border-color);
+  padding: $spacing-xl $spacing-unit $spacing-lg $spacing-unit;
+  border-bottom: 2px solid var(--border-color);
   margin-bottom: $spacing-xl;
   
   /* Horizontal layout on all screen sizes */
@@ -30,13 +30,15 @@ header {
 
 .header-heading {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+  margin-right: $spacing-xxl;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
+  letter-spacing: -0.02em;
   
   &:hover {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   
   &:focus {
@@ -46,14 +48,16 @@ header {
 }
 
 .header-text {
-  font-size: $font-size-base;
-  font-weight: 400;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--text-color);
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-right: $spacing-lg;
   
   &:hover {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   
   &:focus {
@@ -62,7 +66,7 @@ header {
   }
   
   &.active {
-    opacity: 0.8;
+    font-weight: 600;
   }
 }
 
