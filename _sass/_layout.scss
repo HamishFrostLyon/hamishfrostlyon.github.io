@@ -14,7 +14,9 @@
 
 /* Simplified Header - Only 2 Styles */
 header {
-  padding: $spacing-lg 0;
+  width: 100%;
+  max-width: none;
+  padding: $spacing-lg $spacing-unit;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: $spacing-xl;
   
@@ -23,6 +25,7 @@ header {
   flex-direction: row;
   align-items: center;
   gap: $spacing-lg;
+  flex-wrap: nowrap;
 }
 
 .header-heading {
