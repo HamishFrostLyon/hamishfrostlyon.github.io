@@ -4,7 +4,6 @@ date: 2025-07-08
 excerpt: 'Like Quixote, we approach information with our own narratives. A routine 3% variance becomes a concerning trend; random clustering transforms into clear patterns. While we we chase spikes and dips, deploying resources against statistical noise, based on what amounts to the wind changing direction. The windmills continue their patient rotation, grinding grain, utterly unaffected by our grand narrative.'
 ---
 
-# Type-3 Errors, or wasting your own time reacting to noise in metrics.
 
 ### TL;DR
 
