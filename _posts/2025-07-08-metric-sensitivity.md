@@ -1,11 +1,7 @@
 ---
-title: 'Type-3 Errors'
+title: 'Tilting at Digital Windmills'
 date: 2025-07-08
-excerpt:
-  'Single point metrics and charts use simple hueristics such as colouring daata
-  red below the line and green above or control charts with rules like 3 data
-  points over the upper control limit miss critical process changes and create
-  unnecessary work'
+excerpt: 'Like Quixote, we approach information with our own narratives. A routine 3% variance becomes a concerning trend; random clustering transforms into clear patterns. While we we chase spikes and dips, deploying resources against statistical noise, based on what amounts to the wind changing direction. The windmills continue their patient rotation, grinding grain, utterly unaffected by our grand narrative.'
 ---
 
 # Type-3 Errors, or wasting your own time reacting to noise in metrics.
