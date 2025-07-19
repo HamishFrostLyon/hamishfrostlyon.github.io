@@ -6,7 +6,7 @@ excerpt: 'Like Quixote, we approach information with our own narratives. A routi
 
 # Type-3 Errors, or wasting your own time reacting to noise in metrics.
 
-## TL;DR
+### TL;DR
 
 Mathematical surprise offers a revolutionary approach to process monitoring that
 combines magnitude and pattern detection into a single, principled metric.
@@ -39,7 +39,7 @@ organizations for a future where competitive advantage belongs to those who can
 recognize meaningful patterns in ambiguous data and adapt faster than
 competitors still relying on approximations from an era of limited compute.
 
-## The Problem We've Inherited
+### The Problem We've Inherited
 
 Your production line has been running smoothly for weeks. Then suddenly, defect
 rates spike. By the time you notice, you've already shipped faulty products to
@@ -51,7 +51,7 @@ often matter most.
 What if we could detect problems before they become obvious, using mathematics
 rather than arbitrary thresholds?
 
-## Historical Investigation: The Arbitrary Rules That Run Our World
+### Historical Investigation: The Arbitrary Rules That Run Our World
 
 ### The Birth of Industrial Statistics
 
@@ -136,7 +136,7 @@ The question isn't whether we can do better than 1950s-era heuristics. It's why
 we haven't already moved beyond the compute constraints that originally
 necessitated them.
 
-## Mathematical Core: The Mathematics of Surprise
+### Mathematical Core: The Mathematics of Surprise
 
 ### Beyond Compute Approximations
 
@@ -251,7 +251,7 @@ The key insight is that surprise calculation adapts automatically to changing
 process conditions. Unlike fixed control limits, surprise thresholds respond to
 process shifts by updating probability estimates in real-time.
 
-## Cultural Analysis: The Compute Approximation Society
+### Cultural Analysis: The Compute Approximation Society
 
 ### The Comfort of Historical Approximations
 
@@ -347,7 +347,7 @@ embracing compute advances rather than inherited approximations, organizations
 build the cultural capacity to thrive in environments where change is the only
 constant.
 
-## Broader Implications: Beyond Compute Constraints
+### Broader Implications: Beyond Compute Constraints
 
 The shift from rule-based to information-based monitoring represents more than a
 technical improvement—it's a fundamental change in how we think about
