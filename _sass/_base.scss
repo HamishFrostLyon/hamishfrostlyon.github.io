@@ -27,6 +27,22 @@ p {
   max-width: 65ch; // Optimal line length for readability
 }
 
+// List styling (restore after reset)
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em; // Provides proper indentation
+}
+
+li {
+  margin-bottom: 0.5em; // Spacing between list items
+  line-height: 1.6; // Better readability
+}
+
+// Nested lists
+ul ul, ol ol, ul ol, ol ul {
+  margin: 0.5em 0;
+}
+
 // Links must be distinguishable
 a {
   color: var(--link-color);
