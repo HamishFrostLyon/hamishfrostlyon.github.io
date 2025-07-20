@@ -1,11 +1,11 @@
 ---
-title: 'Tilting at Digital Windmills'
+title: 'Tilting at Windmills'
 date: 2025-07-08
 excerpt: 'Like Quixote, we approach information with our own narratives. A routine 3% variance becomes a concerning trend; random clustering transforms into clear patterns. While we we chase spikes and dips, deploying resources against statistical noise, based on what amounts to the wind changing direction. The windmills continue their patient rotation, grinding grain, utterly unaffected by our grand narrative.'
 ---
 
 
-### TL;DR
+### tl;dr
 
 Mathematical surprise offers a revolutionary approach to process monitoring that
 combines magnitude and pattern detection into a single, principled metric.
@@ -73,7 +73,7 @@ deviations came from practical experience rather than mathematical derivation.
 It seemed to provide a reasonable balance between catching real problems and
 avoiding false alarms.
 
-### The Western Electric Codification
+### Western Electric Rules
 
 As control charts spread through American industry, practitioners discovered
 that dramatic outliers weren't the only sign of trouble. Patterns within the
@@ -81,13 +81,14 @@ control limits often signaled process changes before points crossed the
 three-sigma boundaries. In 1956, Western Electric Company codified these
 observations into what became known as the Western Electric Rules:
 
-**Rule 1**: One point beyond 3 standard deviations **Rule 2**: Nine consecutive
-points on the same side of centerline **Rule 3**: Six consecutive points
-trending up or down **Rule 4**: Fourteen points alternating above and below
-centerline **Rule 5**: Two out of three consecutive points beyond 2 standard
-deviations **Rule 6**: Four out of five consecutive points beyond 1 standard
-deviation **Rule 7**: Fifteen consecutive points within 1 standard deviation
-**Rule 8**: Eight consecutive points beyond 1 standard deviation from centerline
+- One point beyond 3 standard deviations
+- Nine consecutive points on the same side of centerline
+- Six consecutive points trending up or down
+- Fourteen points alternating above and below centerline
+- Two out of three consecutive points beyond 2 standard deviations
+- Four out of five consecutive points beyond 1 standard deviation
+- Fifteen consecutive points within 1 standard deviation
+- Eight consecutive points beyond 1 standard deviation from centerline
 
 These rules became gospel in manufacturing. Quality textbooks presented them as
 scientific fact. ISO standards codified them. Generations of engineers learned
