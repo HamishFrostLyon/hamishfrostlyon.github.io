@@ -1,5 +1,3 @@
-// Theme toggle removed for header simplification
-
 // Lazy loading styles
 img[data-src] {
   opacity: 0;
@@ -38,11 +36,6 @@ article {
   }
 }
 
-.meta {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
 
 // Skip navigation links
 .skip-links {

@@ -1,12 +1,5 @@
 // Simplified components - search and theme toggle removed
 
-// Post list with WCAG AAA colors
-.post-date {
-  color: var(--text-secondary);
-  font-size: $font-size-meta;
-  font-family: "SF Mono", Monaco, "Cascadia Mono", monospace;
-}
-
 .post-title a {
   @include link-unstyled;
   color: var(--text-color);
@@ -25,7 +18,6 @@
   margin-bottom: 1rem;
 }
 
-// Search functionality removed for simplicity
 
 // Tap target sizing for interactive elements
 // Only apply to elements that are actually interactive controls
@@ -133,6 +125,8 @@ textarea {
 }
 
 .post-date {
+  color: var(--text-secondary);
+  font-size: $font-size-meta;
   font-weight: 500;
   min-width: 4rem;
 
@@ -190,7 +184,7 @@ textarea {
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--bg-secondary);
-  transition: border-color 0.2s ease;
+  @include transition(border-color);
 
   &:hover {
     border-color: var(--text-secondary);
@@ -217,7 +211,7 @@ textarea {
   display: block;
   font-size: 0.75rem;
   color: var(--text-secondary);
-  font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+  @include font-stack("mono");
   margin-bottom: 0.5rem;
 }
 
@@ -238,14 +232,14 @@ textarea {
   background: var(--border-color);
   z-index: 1000;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  @include transition(opacity, 0.3s);
 }
 
 .reading-progress-fill {
   height: 100%;
   background: var(--text-color);
   width: 0%;
-  transition: width 0.1s ease;
+  @include transition(width, 0.1s);
 }
 
 // Share buttons

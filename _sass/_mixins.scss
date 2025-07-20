@@ -68,34 +68,6 @@
   border: 0;
 }
 
-// Container padding mixin
-@mixin container-padding($multiplier: 1) {
-  padding: $spacing-unit * $multiplier;
-
-  @include respond-to("mobile") {
-    padding: $spacing-unit * $multiplier * 0.8;
-  }
-}
-
-// Link hover state
-@mixin link-hover($color: var(--hover-color)) {
-  &:hover {
-    color: $color;
-    text-decoration: none;
-  }
-}
-
-// Card shadow mixin
-@mixin card-shadow($level: 1) {
-  @if $level == 1 {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  } @else if $level == 2 {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  } @else if $level == 3 {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  }
-}
-
 // Font stack mixin
 @mixin font-stack($type: "body") {
   @if $type == "body" {

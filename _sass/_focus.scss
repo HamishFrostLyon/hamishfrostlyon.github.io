@@ -43,12 +43,6 @@ select:focus-visible {
   outline-offset: 0;
 }
 
-// Search input focus
-.search-input:focus-visible {
-  outline: none; // Remove since we have border
-  border-bottom-color: var(--focus-color, var(--link-color));
-  border-bottom-width: 2px;
-}
 
 // High contrast mode support
 @media (prefers-contrast: high) {
@@ -65,10 +59,6 @@ select:focus-visible {
   }
 }
 
-// Focus within for parent elements
-.search-wrapper:focus-within {
-  box-shadow: 0 0 0 3px var(--focus-color, var(--link-color));
-}
 
 // Ensure focus is never hidden
 .no-focus-outline *:focus {
