@@ -72,33 +72,6 @@ textarea {
   border-top: 1px solid var(--border-color);
 }
 
-// Social links
-.social-links {
-  margin-top: 1rem;
-
-  a {
-    @include flex-start;
-    display: inline-flex;
-    gap: 0.5rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    @include transition(color);
-
-    &:hover {
-      color: var(--link-color);
-
-      svg {
-        stroke: var(--link-color);
-      }
-    }
-
-    svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      @include transition(stroke);
-    }
-  }
-}
 
 // Post listings
 .post-list {
@@ -222,25 +195,6 @@ textarea {
   margin: 0;
 }
 
-// Reading progress indicator
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--border-color);
-  z-index: 1000;
-  opacity: 0;
-  @include transition(opacity, 0.3s);
-}
-
-.reading-progress-fill {
-  height: 100%;
-  background: var(--text-color);
-  width: 0%;
-  @include transition(width, 0.1s);
-}
 
 // Share buttons
 .share-buttons {

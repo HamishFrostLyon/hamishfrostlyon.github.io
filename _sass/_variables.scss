@@ -88,8 +88,6 @@ $line-height-heading: 1.2;
 
 // Spacing for WCAG AAA
 $paragraph-spacing: 2em; // WCAG AAA requirement
-$letter-spacing: 0.12em; // WCAG AAA for body text
-$word-spacing: 0.16em; // WCAG AAA
 
 // Breakpoints (using 1px gap to prevent overlap)
 $mobile-max: 599px; // Use for max-width queries
@@ -104,8 +102,3 @@ $spacing-sm: 0.5rem;
 $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
-$spacing-xxl: 3rem;
-
-// Focus styles
-$focus-outline-width: 3px;
-$focus-outline-offset: 2px;
