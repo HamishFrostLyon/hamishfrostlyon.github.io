@@ -67,11 +67,12 @@ the process was stable. This became the foundation of statistical process
 control and earned Shewhart recognition as the father of quality control.
 
 But here's what most people don't know: Shewhart's three-sigma rule was
-arbitrary. "Three-sigma limits are not based on any theory," he wrote. "They are
-merely a tool to tell us when we should act." The choice of three standard
-deviations came from practical experience rather than mathematical derivation.
-It seemed to provide a reasonable balance between catching real problems and
-avoiding false alarms.
+arbitrary. He openly admitted this fundamental limitation:
+
+> "Three-sigma limits are not based on any theory. They are merely a tool to tell us when we should act."
+> <cite>Walter A. Shewhart</cite>
+
+The choice of three standard deviations came from practical experience rather than mathematical derivation. It seemed to provide a reasonable balance between catching real problems and avoiding false alarms.
 
 ### Western Electric Rules
 
@@ -126,15 +127,15 @@ systems flag anomalies based on configurable multiples of historical variance.
 We've built a world of watchers watching for patterns that earlier watchers
 identified under compute constraints that no longer exist.
 
+<div class="pullquote highlight">
+The question isn't whether we can do better than 1950s-era heuristics. It's why we haven't already moved beyond the compute constraints that originally necessitated them.
+</div>
+
 Meanwhile, information theory has given us tools to measure surprise
 mathematically. Rather than relying on approximations from an era of limited
 compute, we can calculate exactly how unexpected any observation is given its
 context. Instead of separate heuristics for different patterns, we can unify all
 forms of process change under a single theoretical framework.
-
-The question isn't whether we can do better than 1950s-era heuristics. It's why
-we haven't already moved beyond the compute constraints that originally
-necessitated them.
 
 ### Mathematical Core: The Mathematics of Surprise
 
@@ -147,12 +148,11 @@ reasonable balance with slide-rule calculations. Eight consecutive points above
 centerline? Experience suggested it was worth investigating when exact
 probability calculations were impossible.
 
-Mathematical surprise asks a fundamentally different question: "How much
-information does this observation contain?" Information, in Claude Shannon's
-technical sense, is the negative logarithm of probability. Common events carry
-little information because they tell us nothing we didn't already expect. Rare
-events carry high information content because they force us to update our
-understanding of the world.
+<div class="pullquote">
+Mathematical surprise asks a fundamentally different question: "How much information does this observation contain?"
+</div>
+
+Information, in Claude Shannon's technical sense, is the negative logarithm of probability. Common events carry little information because they tell us nothing we didn't already expect. Rare events carry high information content because they force us to update our understanding of the world.
 
 This shift from compute approximations to information content transforms process
 monitoring from heuristic-following to mathematical reasoning. Instead of
@@ -275,12 +275,11 @@ programming, it couldn't adapt. When financial institutions followed risk
 management rules calibrated for normal market conditions, they couldn't respond
 appropriately to 2008's unprecedented circumstances.
 
-Surprise-based thinking represents a fundamental shift from heuristic-following
-to information processing. Instead of asking "Which heuristic applies?" we ask
-"How much information does this contain?" Instead of predetermined responses
-developed under compute constraints, we calibrate reactions to actual surprise
-content. This approach builds adaptive capacity rather than rigid adherence to
-approximations from an earlier era.
+<div class="pullquote">
+Instead of asking "Which heuristic applies?" we ask "How much information does this contain?"
+</div>
+
+Surprise-based thinking represents a fundamental shift from heuristic-following to information processing. Instead of predetermined responses developed under compute constraints, we calibrate reactions to actual surprise content. This approach builds adaptive capacity rather than rigid adherence to approximations from an earlier era.
 
 ### The Measurement Paradox
 
@@ -433,10 +432,9 @@ than pretending precision where none exists. It demands intellectual humility
 and continuous learning. But it also provides competitive advantage that
 compounds over time.
 
-The whispers of change are there in the data, waiting to be heard. Traditional
-control charts are calibrated for screams, leaving us deaf to the subtle signals
-that could save millions in waste, prevent quality failures, and unlock new
-sources of competitive advantage.
+<div class="pullquote highlight">
+The whispers of change are there in the data, waiting to be heard. Traditional control charts are calibrated for screams, leaving us deaf to the subtle signals that could save millions in waste.
+</div>
 
 The question isn't whether we can do better than 1950s-era control charts. It's
 whether we're willing to abandon the comfort of compute approximations for the

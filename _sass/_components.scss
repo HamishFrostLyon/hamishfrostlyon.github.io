@@ -258,6 +258,40 @@ textarea {
   color: var(--text-secondary);
 }
 
+// Pull quotes for emphasis and visual breaks
+.pullquote {
+  margin: 3em 0;
+  padding: 2em;
+  font-size: 1.25em;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-color);
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-color));
+  border-top: 3px solid var(--link-color);
+  border-bottom: 3px solid var(--link-color);
+  border-radius: 8px;
+  position: relative;
+
+  &:before, &:after {
+    content: '"';
+    font-size: 2em;
+    color: var(--link-color);
+    opacity: 0.3;
+  }
+
+  // Variant for key insights
+  &.highlight {
+    background: var(--bg-secondary);
+    border: 2px solid var(--link-color);
+    font-weight: 600;
+    
+    &:before, &:after {
+      opacity: 0.5;
+    }
+  }
+}
+
 // MathJax equation styling
 .MathJax_Display {
   margin: 1.5rem 0;

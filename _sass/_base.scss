@@ -118,6 +118,39 @@ pre {
   }
 }
 
+// Blockquote styling for professional quotes
+blockquote {
+  margin: 2em 0;
+  padding: 1.5em 2em;
+  border-left: 4px solid var(--link-color);
+  background: var(--bg-secondary);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: var(--text-color);
+  position: relative;
+
+  p {
+    margin-bottom: 1em;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Quote attribution
+  cite {
+    display: block;
+    margin-top: 1em;
+    font-style: normal;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    
+    &:before {
+      content: "— ";
+    }
+  }
+}
+
 // Ensure images don't break contrast
 img {
   max-width: 100%;
