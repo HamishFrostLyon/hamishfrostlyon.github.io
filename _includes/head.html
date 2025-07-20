@@ -80,7 +80,6 @@
     rel="canonical"
     href="{{ page.url | replace:'index.html','' | absolute_url }}"
   />
-  {% include hreflang.html %}
 
   <!-- RSS Feed -->
   <link
@@ -162,7 +161,7 @@
   />
   {% endif %} {% if site.bing_site_verification %}
   <meta name="msvalidate.01" content="{{ site.bing_site_verification }}" />
-  {% endif %} {% include structured-data.html %}
+  {% endif %}
 
   <!-- Mathematical notation support -->
   <script>

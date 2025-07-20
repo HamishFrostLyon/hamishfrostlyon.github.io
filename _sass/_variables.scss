@@ -74,20 +74,14 @@
 
 // Typography scales for WCAG AAA
 $font-size-base: 1rem; // 16px minimum
-$font-size-large: 1.125rem; // 18px
 $font-size-small: 0.875rem; // 14px (requires 4.5:1 contrast only)
 
 // Semantic font sizes
 $font-size-meta: 0.875rem; // For dates, captions, meta info
-$font-size-code: 0.9em; // For inline code
 $font-size-tiny: 0.8rem; // For very small text (mobile only)
 
 // Line height for WCAG AAA
 $line-height-base: 1.5; // WCAG AAA minimum
-$line-height-heading: 1.2;
-
-// Spacing for WCAG AAA
-$paragraph-spacing: 2em; // WCAG AAA requirement
 
 // Breakpoints (using 1px gap to prevent overlap)
 $mobile-max: 599px; // Use for max-width queries

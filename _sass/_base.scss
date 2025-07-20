@@ -23,7 +23,7 @@ body {
 
 // WCAG AAA: Paragraph spacing
 p {
-  margin-bottom: $paragraph-spacing;
+  margin-bottom: 2em;
   max-width: 65ch; // Optimal line length for readability
 }
 
@@ -53,7 +53,7 @@ h4,
 h5,
 h6 {
   color: var(--text-color);
-  line-height: $line-height-heading;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   font-weight: 600;
   margin-top: 1.5em;
@@ -80,10 +80,6 @@ small,
   color: var(--text-secondary);
 }
 
-// Large text (18px+ or 14px+ bold) requires only 4.5:1 contrast
-.large {
-  font-size: $font-size-large;
-}
 
 // Code blocks with proper contrast
 code {
@@ -91,7 +87,7 @@ code {
   padding: 0.125em 0.25em;
   border-radius: 3px;
   @include font-stack("mono");
-  font-size: $font-size-code;
+  font-size: 0.9em;
 }
 
 pre {
