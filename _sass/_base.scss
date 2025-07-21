@@ -118,13 +118,14 @@ pre {
   }
 }
 
-// Simple blockquote styling - exactly like markdown
+// Simple blockquote styling - just left border like markdown
 blockquote {
   margin: 1.5em 0;
   padding-left: 1.5em;
   border-left: 4px solid var(--text-secondary);
   color: var(--text-color);
-  font-style: inherit;
+  font-style: normal;
+  font-weight: normal;
 
   p {
     margin-bottom: 1em;

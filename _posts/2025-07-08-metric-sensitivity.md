@@ -4,14 +4,27 @@ date: 2025-07-08
 excerpt: 'Like Quixote, we approach information with our own narratives. A routine 3% variance becomes a concerning trend; random clustering transforms into clear patterns. While we we chase spikes and dips, deploying resources against statistical noise, based on what amounts to the wind changing direction. The windmills continue their patient rotation, grinding grain, utterly unaffected by our grand narrative.'
 ---
 
-
 ### tl;dr
 
-Mathematical surprise offers a revolutionary approach to process monitoring that
-combines magnitude and pattern detection into a single, principled metric.
-Instead of juggling multiple heuristics developed in the 1920s and 1950s under
-severe compute constraints, organizations can monitor one number that captures
-both sudden failures and gradual drift through equivalent mathematical pathways.
+## Metrics & Action
+
+Metrics drive action; if you measure something, set a target, and make it public - people will act on it. Most of the theory behind measuring a process that I see play out in organisations as a consultant have their origins in the tradition of Walter Shewhart who pioneered control charts, [needs ref to other people who originated statistical methods e.g. demming, Western Electric rules through WW2 recover through to the visual management approach which was created by toyota; outline culimination in VPC that are now widely deployed]. These practices have become have taken a religious flavour with zealous missionaries and martyrs prepared [...]. Fundamentally, this was a choice between the cognitive load and time consuming use of robust methods and the effacicy of simplicity in the face of complexity.
+
+Recently, during an engagement I watched a well intentioned team diligently reacting to every bit of red on their graph, and then becoming frustrated with what was an inheriently random process generating a fair amount of noise; then, the Team proposed an approach that reminded me of the Western Electric Rules. There reflection both was insightful and a practical solution to wasting their time. There's a distinction between the variability due to the way work is being conducted which can be thought of a lack of knowledge and variability which is inheriently random or is not knowable; the latter is the definition of randomness.
+
+The best known approach to the one that the Team were going down is the work done at Western Electric.
+- One point beyond 3 standard deviations
+- Nine consecutive points on the same side of centerline
+- Six consecutive points trending up or down
+- Fourteen points alternating above and below centerline
+- Two out of three consecutive points beyond 2 standard deviations
+- Four out of five consecutive points beyond 1 standard deviation
+- Fifteen consecutive points within 1 standard deviation
+- Eight consecutive points beyond 1 standard deviation from centerline
+
+These rules became gospel. I learnt about them from a quality textbook in an quality engineering course at university. ISO developed a standard which codified them.
+
+I watched them reacting to  tried to implement visual management practices and everytim an recent combines magnitude and pattern detection into a single, principled metric. Instead of juggling multiple heuristics developed in the 1920s and 1950s under severe compute constraints, organizations can monitor one number that captures both sudden failures and gradual drift through equivalent mathematical pathways.
 
 Traditional control charts use separate, unrelated heuristics like "1 point
 beyond 3 standard deviations" or "8 consecutive points above centerline." These
@@ -50,8 +63,6 @@ often matter most.
 What if we could detect problems before they become obvious, using mathematics
 rather than arbitrary thresholds?
 
-### Historical Investigation: The Arbitrary Rules That Run Our World
-
 ### The Birth of Industrial Statistics
 
 Walter Andrew Shewhart was solving a familiar problem in 1924. Working at Bell
@@ -74,27 +85,10 @@ arbitrary. He openly admitted this fundamental limitation:
 
 The choice of three standard deviations came from practical experience rather than mathematical derivation. It seemed to provide a reasonable balance between catching real problems and avoiding false alarms.
 
-### Western Electric Rules
 
-As control charts spread through American industry, practitioners discovered
-that dramatic outliers weren't the only sign of trouble. Patterns within the
-control limits often signaled process changes before points crossed the
-three-sigma boundaries. In 1956, Western Electric Company codified these
-observations into what became known as the Western Electric Rules:
 
-- One point beyond 3 standard deviations
-- Nine consecutive points on the same side of centerline
-- Six consecutive points trending up or down
-- Fourteen points alternating above and below centerline
-- Two out of three consecutive points beyond 2 standard deviations
-- Four out of five consecutive points beyond 1 standard deviation
-- Fifteen consecutive points within 1 standard deviation
-- Eight consecutive points beyond 1 standard deviation from centerline
 
-These rules became gospel in manufacturing. Quality textbooks presented them as
-scientific fact. ISO standards codified them. Generations of engineers learned
-to watch for "runs" and "trends" as distinct phenomena requiring separate
-attention.
+
 
 ### The Compute Constraints
 
@@ -137,9 +131,7 @@ compute, we can calculate exactly how unexpected any observation is given its
 context. Instead of separate heuristics for different patterns, we can unify all
 forms of process change under a single theoretical framework.
 
-### Mathematical Core: The Mathematics of Surprise
-
-### Beyond Compute Approximations
+### Compute Approximations
 
 Traditional control charts ask a simple question: "Is this measurement unusual?"
 They answer by comparing new points to historical limits drawn at distances
@@ -160,38 +152,22 @@ watching for predetermined patterns developed under compute constraints, we
 measure the actual surprise each observation generates and respond
 proportionally to its information content.
 
-### The Two Faces of Process Change
+### Patterns and Magnitude
 
-Process changes express themselves through two distinct mechanisms:
+Process changes express themselves through two distinct mechanisms **Magnitude Changes**: Sudden shifts that produce individual measurements far from expected values. A bearing failure might cause vibration readings to jump from 2.3 to 7.8 units overnight. The magnitude of change signals the severity of disruption. **Pattern Changes**: Gradual drifts that manifest as sustained small deviations in consistent directions. Tool wear might cause dimensions to creep upward by 0.02 units per hour over twelve hours. No individual measurement seems alarming, but the pattern reveals systematic change.
 
-**Magnitude Changes**: Sudden shifts that produce individual measurements far
-from expected values. A bearing failure might cause vibration readings to jump
-from 2.3 to 7.8 units overnight. The magnitude of change signals the severity of
-disruption.
+Traditional control charts treat these as separate phenomena requiring different heuristics. Western Electric Rule 1 catches magnitude changes, while Rule 2 catches pattern changes. But information theory reveals them as different expressions of the same underlying reality: both represent departures from expected randomness.
 
-**Pattern Changes**: Gradual drifts that manifest as sustained small deviations
-in consistent directions. Tool wear might cause dimensions to creep upward by
-0.02 units per hour over twelve hours. No individual measurement seems alarming,
-but the pattern reveals systematic change.
+### Having a Framework
 
-Traditional control charts treat these as separate phenomena requiring different
-heuristics. Western Electric Rule 1 catches magnitude changes, while Rule 2
-catches pattern changes. But information theory reveals them as different
-expressions of the same underlying reality: both represent departures from
-expected randomness.
+The mathematical insight is that we can measure the information content of both magnitude and pattern, then combine them into a unified surprise metric:
 
-### The Unified Framework
+  $$S_t = w_m \cdot I_m(y_t) + w_p \cdot I_p(y_{t-k:t})$$
 
-The mathematical insight is that we can measure the information content of both
-magnitude and pattern, then combine them into a unified surprise metric:
-
-$$S_t = w_m \cdot I_m(y_t) + w_p \cdot I_p(y_{t-k:t})$$
-
-Where: $S_t$ represents total surprise at time $t$
-$I_m(y_t) = -\log_2 P(y_t \mid \text{recent history})$ measures magnitude
-surprise
-$I_p(y_{t-k:t}) = -\log_2 P(\text{pattern} \mid \text{normal variation})$
-measures pattern surprise $w_m$ and $w_p$ are weights that balance magnitude
+Where:
+  $S_t$ represents total surprise at time $t$
+  $I_m(y_t) = -\log_2 P(y_t \mid \text{recent history})$ measures magnitude surprise
+  $I_p(y_{t-k:t}) = -\log_2 P(\text{pattern} \mid \text{normal variation})$ measures pattern surprise $w_m$ and $w_p$ are weights that balance magnitude
 versus pattern sensitivity
 
 ### Worked Example: Calibrating Equivalent Surprise
