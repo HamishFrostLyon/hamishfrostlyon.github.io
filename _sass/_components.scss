@@ -276,6 +276,46 @@ textarea {
   }
 }
 
+// Code block enhancements
+.highlight {
+  position: relative;
+  margin: 2em 0;
+
+  // Line numbers (if enabled)
+  .lineno {
+    color: var(--text-secondary);
+    border-right: 1px solid var(--border-color);
+    padding-right: 1em;
+    margin-right: 1em;
+    user-select: none;
+  }
+
+  // Copy button for code blocks
+  .copy-button {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 0.25em 0.75em;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.75em;
+    color: var(--text-secondary);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    &:hover {
+      background: var(--bg-secondary);
+      color: var(--text-color);
+    }
+  }
+
+  &:hover .copy-button {
+    opacity: 1;
+  }
+}
+
 // MathJax equation styling
 .MathJax_Display {
   margin: 1.5rem 0;

@@ -97,24 +97,71 @@ small,
 }
 
 
-// Code blocks with proper contrast
+// Inline code styling
 code {
   background: var(--bg-secondary);
-  padding: 0.125em 0.25em;
+  padding: 0.2em 0.4em;
   border-radius: 3px;
   @include font-stack("mono");
-  font-size: 0.9em;
+  font-size: 0.85em;
+  border: 1px solid var(--border-color);
 }
 
+// Code blocks with enhanced styling
 pre {
   background: var(--bg-secondary);
-  padding: 1em;
-  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.5em;
+  margin: 2em 0;
   overflow-x: auto;
+  position: relative;
+  line-height: 1.5;
 
+  // Remove inline code styling within code blocks
   code {
     background: none;
     padding: 0;
+    border: none;
+    font-size: 0.875em;
+    color: var(--text-color);
+    display: block;
+  }
+
+  // Subtle shadow for depth
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  // Language indicator (when specified)
+  &[data-lang]:before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.75em;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.75em;
+    border-radius: 0 6px 0 4px;
+    font-family: inherit;
+  }
+}
+
+// Horizontal scrollbar styling
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+  
+  &:hover {
+    background: var(--text-secondary);
   }
 }
 
