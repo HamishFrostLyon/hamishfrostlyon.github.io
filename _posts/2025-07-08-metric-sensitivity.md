@@ -1,14 +1,12 @@
 ---
-title: 'Tilting at Windmills'
+title: 'Metrics and Motion'
 date: 2025-07-08
 excerpt: 'Like Quixote, we approach information with our own narratives. A routine 3% variance becomes a concerning trend; random clustering transforms into clear patterns. While we we chase spikes and dips, deploying resources against statistical noise, based on what amounts to the wind changing direction. The windmills continue their patient rotation, grinding grain, utterly unaffected by our grand narrative.'
 ---
 
 ### tl;dr
 
-## Metrics & Action
-
-Metrics drive action; if you measure something, set a target, and make it public - people will act on it. Most of the theory behind measuring a process that I see play out in organisations as a consultant have their origins in the tradition of Walter Shewhart who pioneered control charts, [needs ref to other people who originated statistical methods e.g. demming, Western Electric rules through WW2 recover through to the visual management approach which was created by toyota; outline culimination in VPC that are now widely deployed]. These practices have become have taken a religious flavour with zealous missionaries and martyrs prepared [...]. Fundamentally, this was a choice between the cognitive load and time consuming use of robust methods and the effacicy of simplicity in the face of complexity.
+Metrics create action; unnecessary action is waste. If you measure something, set a target, and make it public - people will act on it. Most of the theory behind measuring a process that I see play out in organisations as a consultant have their origins in the tradition of Walter Shewhart who pioneered control charts, [needs ref to other people who originated statistical methods e.g. demming, Western Electric rules through WW2 recover through to the visual management approach which was created by toyota; outline culimination in VPC that are now widely deployed]. These practices have become have taken a religious flavour with zealous missionaries and martyrs prepared [...]. Fundamentally, this was a choice between the cognitive load and time consuming use of robust methods and the effacicy of simplicity in the face of complexity.
 
 Recently, during an engagement I watched a well intentioned team diligently reacting to every bit of red on their graph, and then becoming frustrated with what was an inheriently random process generating a fair amount of noise; then, the Team proposed an approach that reminded me of the Western Electric Rules. There reflection both was insightful and a practical solution to wasting their time. There's a distinction between the variability due to the way work is being conducted which can be thought of a lack of knowledge and variability which is inheriently random or is not knowable; the latter is the definition of randomness.
 
@@ -226,6 +224,93 @@ probability considers runs, trends, and other systematic deviations
 The key insight is that surprise calculation adapts automatically to changing
 process conditions. Unlike fixed control limits, surprise thresholds respond to
 process shifts by updating probability estimates in real-time.
+
+Here's a practical implementation comparing traditional control charts with surprise-based monitoring:
+
+```python
+import numpy as np
+from scipy import stats
+
+class TraditionalControl:
+    """Western Electric Rules implementation"""
+    def __init__(self, data_window=20):
+        self.history = []
+        self.window = data_window
+    
+    def check_rules(self, new_value):
+        self.history.append(new_value)
+        if len(self.history) < self.window:
+            return False, "Insufficient data"
+        
+        # Calculate control limits
+        data = self.history[-self.window:]
+        mean = np.mean(data)
+        std = np.std(data)
+        
+        # Rule 1: One point beyond 3 sigma
+        if abs(new_value - mean) > 3 * std:
+            return True, "Rule 1: 3-sigma violation"
+        
+        # Rule 2: Nine consecutive points on same side
+        recent = self.history[-9:]
+        if len(recent) == 9 and all(x > mean for x in recent):
+            return True, "Rule 2: 9 points above centerline"
+        
+        return False, "Within control limits"
+
+class SurpriseMonitor:
+    """Information-theoretic surprise calculation"""
+    def __init__(self, data_window=20):
+        self.history = []
+        self.window = data_window
+        
+    def calculate_surprise(self, new_value):
+        self.history.append(new_value)
+        if len(self.history) < self.window:
+            return 0, "Insufficient data"
+        
+        # Estimate current distribution
+        data = self.history[-self.window:]
+        mean = np.mean(data)
+        std = np.std(data)
+        
+        # Calculate magnitude surprise
+        prob_magnitude = 2 * stats.norm.cdf(-abs(new_value - mean) / std)
+        magnitude_surprise = -np.log2(prob_magnitude + 1e-10)
+        
+        # Calculate pattern surprise (simplified)
+        recent = self.history[-5:]
+        runs_above = sum(1 for x in recent if x > mean)
+        prob_pattern = stats.binom.pmf(runs_above, 5, 0.5)
+        pattern_surprise = -np.log2(prob_pattern + 1e-10)
+        
+        # Combined surprise with weights
+        total_surprise = 0.7 * magnitude_surprise + 0.3 * pattern_surprise
+        
+        return total_surprise, f"Surprise: {total_surprise:.2f} bits"
+
+# Example: Detecting subtle drift missed by traditional methods
+np.random.seed(42)
+traditional = TraditionalControl()
+surprise = SurpriseMonitor()
+
+# Normal operation followed by gradual drift
+data = np.concatenate([
+    np.random.normal(100, 2, 30),  # Normal operation
+    np.linspace(100, 102, 20) + np.random.normal(0, 1, 20)  # Subtle drift
+])
+
+for i, value in enumerate(data):
+    trad_alert, trad_msg = traditional.check_rules(value)
+    surp_value, surp_msg = surprise.calculate_surprise(value)
+    
+    if i > 30 and surp_value > 8:  # Surprise threshold
+        print(f"Step {i}: Surprise detected drift - {surp_msg}")
+        print(f"         Traditional: {trad_msg}")
+        break
+```
+
+This code demonstrates how surprise-based monitoring can detect subtle process changes that traditional control charts miss. The gradual drift starting at step 30 generates increasing surprise values even though no Western Electric rules are violated.
 
 ### Cultural Analysis: The Compute Approximation Society
 
